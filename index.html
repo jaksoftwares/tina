@@ -303,6 +303,15 @@
       60% { transform: scale(1.22); }
     }
 
+    .joke-subtext {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: var(--primary);
+      margin-top: 8px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
     /* ========================================================
        CELEBRATION SCREEN (After clicking YES)
        ======================================================== */
@@ -538,7 +547,10 @@
       <div class="footer-note">
         <span>Made just for you with</span>
         <span class="heart-icon">❤️</span>
-        <span>— by Joseph 😉</span>
+        <span>— by Elvis 😉</span>
+      </div>
+      <div class="joke-subtext">
+        I am Elvis, but you can call me anytime 😏📞
       </div>
     </div>
 
@@ -586,7 +598,7 @@
         </div>
       </div>
 
-      <!-- Send to Joseph WhatsApp Button -->
+      <!-- Send to Elvis WhatsApp Button -->
       <a id="whatsapp-link" 
          href="#" 
          target="_blank" 
@@ -608,7 +620,7 @@
         <div class="secret-letter-body">
           Tina, your smile is honestly my favorite part of any day.<br>
           Can't wait to grab ice cream, laugh together, and hear all about your week. See you soon! ❤️<br>
-          <span style="font-family:'Outfit'; font-size:14px; font-weight:600; color:#ff3377; display:block; margin-top:6px;">— Joseph</span>
+          <span style="font-family:'Outfit'; font-size:14px; font-weight:600; color:#ff3377; display:block; margin-top:6px;">— Elvis</span>
         </div>
       </div>
 
@@ -620,9 +632,8 @@
     /* ========================================================
        STATE & VARIABLES
        ======================================================== */
-    // 💡 Optional: Put your phone number with country code (e.g. "12345678901") to open direct chat!
-    // Leave as "" and WhatsApp will let Tina choose your chat from her contacts.
-    const YOUR_WHATSAPP_NUMBER = "";
+    // Elvis's WhatsApp number (Kenyan mobile 0791620401 -> 254791620401)
+    const YOUR_WHATSAPP_NUMBER = "254791620401";
 
     let dodgeCount = 0;
     let soundEnabled = true;
@@ -634,6 +645,7 @@
       "Wait, are you sure? 🥺",
       "Think again! 🍦",
       "Ice cream on me though! 🍨",
+      "I am Elvis, but call me anytime! 📞😏",
       "Look how sad the bear is! 😭",
       "Nice try! Too slow 🏃‍♂️💨",
       "Wrong button Tina! 👉",
@@ -848,8 +860,11 @@
 
     function updateWhatsAppUrl() {
       const waLink = document.getElementById('whatsapp-link');
-      const textMessage = `Hey Joseph! 🥰 I said YES to our ice cream date! 🍦❤️\n\n🍨 Flavor choice: ${selectedFlavor}\n📅 Day: ${selectedDay}\n\nCan't wait! 💕`;
-      const phone = YOUR_WHATSAPP_NUMBER ? YOUR_WHATSAPP_NUMBER.replace(/[^0-9]/g, '') : '';
+      const textMessage = `Hey Elvis! 🥰 I said YES to our ice cream date! 🍦❤️\n\n🍨 Flavor choice: ${selectedFlavor}\n📅 Day: ${selectedDay}\n\nCan't wait! 💕`;
+      let phone = YOUR_WHATSAPP_NUMBER ? YOUR_WHATSAPP_NUMBER.replace(/[^0-9]/g, '') : '';
+      if (phone.startsWith('0') && phone.length === 10) {
+        phone = '254' + phone.substring(1);
+      }
       waLink.href = `https://wa.me/${phone}?text=${encodeURIComponent(textMessage)}`;
     }
 
