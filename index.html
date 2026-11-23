@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Empress ❤️ | A Sweet Surprise</title>
+  <title>For Tina ❤️ | A Sweet Surprise</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,8 +15,8 @@
       --primary-glow: rgba(255, 51, 119, 0.45);
       --secondary: #ff85a2;
       --bg-gradient: linear-gradient(135deg, #ffd1dc 0%, #ffe4ec 35%, #fff0f5 70%, #ffc0cb 100%);
-      --card-bg: rgba(255, 255, 255, 0.92);
-      --card-border: rgba(255, 255, 255, 0.8);
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-border: rgba(255, 255, 255, 0.85);
       --text-main: #2b1e25;
       --text-muted: #7d6b75;
       --shadow-sm: 0 8px 30px rgba(255, 80, 130, 0.15);
@@ -55,7 +55,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Ambient Floating Hearts Background Canvas */
+    /* Ambient Floating Hearts Canvas */
     #hearts-canvas, #confetti-canvas {
       position: fixed;
       top: 0;
@@ -108,8 +108,8 @@
       -webkit-backdrop-filter: blur(16px);
       border: 2px solid var(--card-border);
       border-radius: 32px;
-      padding: 40px 32px;
-      max-width: 480px;
+      padding: 38px 30px;
+      max-width: 490px;
       width: 100%;
       text-align: center;
       box-shadow: var(--shadow-lg);
@@ -139,7 +139,7 @@
       font-size: 20px;
       padding: 6px 16px;
       border-radius: 30px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border: 1px dashed var(--secondary);
       animation: pulseBadge 2.5s infinite;
     }
@@ -152,9 +152,9 @@
     /* Hero Bear Image */
     .gif-wrapper {
       position: relative;
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 20px;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 16px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -192,16 +192,115 @@
       font-size: 34px;
       font-weight: 600;
       color: var(--primary);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       letter-spacing: -0.5px;
     }
 
+    /* ========================================================
+       LIVE TYPEWRITER CHAT CARD (Sweet Compliment Intro)
+       ======================================================== */
+    .typewriter-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7fa 100%);
+      border: 1.5px solid #ffe2ec;
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin: 14px 0 20px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(255, 80, 130, 0.08);
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #ffedf3;
+    }
+
+    .chat-sender-pill {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .typing-status {
+      font-size: 11.5px;
+      color: #999;
+      font-style: italic;
+    }
+
+    .skip-btn {
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .skip-btn:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .typed-content {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #382830;
+      white-space: pre-wrap;
+      min-height: 105px;
+      position: relative;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2.5px;
+      height: 1.15em;
+      background-color: var(--primary);
+      vertical-align: text-bottom;
+      animation: blink 0.75s infinite;
+      margin-left: 2px;
+      border-radius: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ========================================================
+       QUESTION SECTION (Revealed after typing)
+       ======================================================== */
+    .question-section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .question-section.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
     .subtitle {
-      font-size: 18px;
+      font-size: 17.5px;
       line-height: 1.5;
       color: var(--text-main);
       font-weight: 500;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
     }
 
     .ice-cream-highlight {
@@ -231,7 +330,7 @@
       justify-content: center;
       gap: 16px;
       min-height: 80px;
-      margin-top: 10px;
+      margin-top: 6px;
     }
 
     button {
@@ -281,10 +380,10 @@
       background: #fff8fa;
     }
 
-    /* Footer Cute Tag */
+    /* Footer Tags */
     .footer-note {
-      margin-top: 32px;
-      font-size: 13.5px;
+      margin-top: 30px;
+      font-size: 14px;
       color: var(--text-muted);
       font-weight: 500;
       display: flex;
@@ -378,7 +477,7 @@
     }
 
     .customizer-title {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--primary);
       text-transform: uppercase;
@@ -410,6 +509,7 @@
       color: #555;
       cursor: pointer;
       transition: all 0.2s ease;
+      touch-action: manipulation;
     }
 
     .pill:hover {
@@ -442,6 +542,7 @@
       gap: 10px;
       margin-bottom: 14px;
       transition: all 0.3s ease;
+      touch-action: manipulation;
     }
 
     .whatsapp-btn:hover {
@@ -498,7 +599,7 @@
       transition: transform 0.3s ease;
     }
 
-    /* Mobile responsive optimizations */
+    /* Mobile Responsive Optimizations */
     @media (max-width: 480px) {
       body {
         padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
@@ -517,6 +618,14 @@
         margin-bottom: 22px;
         line-height: 1.45;
       }
+      .typewriter-card {
+        padding: 16px 16px;
+        margin: 12px 0 18px;
+      }
+      .typed-content {
+        font-size: 15px;
+        min-height: 100px;
+      }
       .badge {
         font-size: 17px;
         padding: 5px 14px;
@@ -533,7 +642,7 @@
       .gif-wrapper {
         width: 145px;
         height: 145px;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
       }
       .sound-toggle {
         top: max(12px, env(safe-area-inset-top));
@@ -585,7 +694,7 @@
     <!-- QUESTION VIEW -->
     <div id="question-view">
       <div class="badge">
-        <span>✨ Special Message Just For You ✨</span>
+        <span>✨ Special Message For Tina ✨</span>
       </div>
 
       <div class="gif-wrapper">
@@ -597,21 +706,39 @@
       </div>
 
       <h1>Heyy Tina 😊</h1>
-      <p class="subtitle">
-        Quick question...<br>
-        Will you go for <span class="ice-cream-highlight">ice cream</span> with me this week? 🍦✨
-      </p>
 
-      <div class="buttons-container" id="btn-container">
-        <button id="yes-btn" onclick="celebrateYes()">
-          YES 😍
-        </button>
-        <button id="no-btn" onmouseover="dodgeNo()" ontouchstart="dodgeNo(event)" onclick="dodgeNo(event)">
-          No 🙄
-        </button>
+      <!-- Live Typewriter Card -->
+      <div class="typewriter-card">
+        <div class="chat-header">
+          <div class="chat-sender-pill">
+            <span>💌 Elvis</span>
+            <span class="typing-status" id="type-status">typing...</span>
+          </div>
+          <button class="skip-btn" onclick="skipTyping()">Skip ⏩</button>
+        </div>
+        <div class="typed-content" id="typed-box">
+          <span id="typed-text"></span><span class="cursor" id="type-cursor"></span>
+        </div>
       </div>
 
-      <div id="no-surrender-msg" class="surrender-msg" style="display:none;"></div>
+      <!-- Question Content (Unfolds automatically after typing completes) -->
+      <div class="question-section" id="question-section">
+        <p class="subtitle">
+          So... quick question for that smile 😉<br>
+          Will you go for <span class="ice-cream-highlight">ice cream</span> with me this week? 🍦✨
+        </p>
+
+        <div class="buttons-container" id="btn-container">
+          <button id="yes-btn" onclick="celebrateYes()">
+            YES 😍
+          </button>
+          <button id="no-btn" onmouseover="dodgeNo()" ontouchstart="dodgeNo(event)" onclick="dodgeNo(event)">
+            No 🙄
+          </button>
+        </div>
+
+        <div id="no-surrender-msg" class="surrender-msg" style="display:none;"></div>
+      </div>
 
       <div class="footer-note">
         <span>Made just for you with</span>
@@ -728,7 +855,82 @@
     ];
 
     /* ========================================================
-       WEB AUDIO API SOUND EFFECTS (No external mp3 required!)
+       LIVE TYPEWRITER ENGINE (Simulates real human typing)
+       ======================================================== */
+    const loveMessage = `I was just thinking about you...
+And I realized I never told you this:
+You honestly have the best smile I've seen in a while.
+Okay that's all. Don't blush too much 😏`;
+
+    let charIndex = 0;
+    let isTypingFinished = false;
+
+    function typeWriter() {
+      const textElem = document.getElementById("typed-text");
+      const cursorElem = document.getElementById("type-cursor");
+      const statusElem = document.getElementById("type-status");
+
+      if (charIndex < loveMessage.length) {
+        const char = loveMessage[charIndex];
+        textElem.textContent += char;
+        charIndex++;
+
+        // Soft typewriter tap sound on non-spaces
+        if (char !== " " && char !== "\n" && Math.random() > 0.4) {
+          playTypeSound();
+        }
+
+        // Realistic typing cadence (pauses at punctuation, newlines, emojis)
+        let delay = 50 + Math.random() * 45;
+        if (char === "\n") {
+          delay = 380;
+        } else if (char === "." || char === ":") {
+          delay = 320;
+        } else if (char === "😏" || char === "😊") {
+          delay = 400;
+        }
+
+        setTimeout(typeWriter, delay);
+      } else {
+        // Typing finished!
+        isTypingFinished = true;
+        cursorElem.style.display = "none";
+        statusElem.innerText = "sent just now ✓✓";
+        statusElem.style.color = "#ff3377";
+
+        // Spawn a gentle cascade of heart sparkles from the card
+        const cardRect = document.querySelector('.typewriter-card').getBoundingClientRect();
+        if (typeof spawnPoof === 'function') {
+          spawnPoof(cardRect.left + cardRect.width / 2, cardRect.top + cardRect.height / 2);
+        }
+        playVictoryChime();
+
+        // Reveal the Ice Cream Question smoothly
+        setTimeout(() => {
+          document.getElementById("question-section").classList.add("revealed");
+        }, 500);
+      }
+    }
+
+    function skipTyping() {
+      if (isTypingFinished) return;
+      isTypingFinished = true;
+      document.getElementById("typed-text").textContent = loveMessage;
+      document.getElementById("type-cursor").style.display = "none";
+      const statusElem = document.getElementById("type-status");
+      statusElem.innerText = "sent just now ✓✓";
+      statusElem.style.color = "#ff3377";
+      document.getElementById("question-section").classList.add("revealed");
+      playPopSound();
+    }
+
+    // Start typing after short initial pause
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(typeWriter, 600);
+    });
+
+    /* ========================================================
+       WEB AUDIO API SOUND EFFECTS
        ======================================================== */
     let audioCtx = null;
 
@@ -745,6 +947,27 @@
       return audioCtx;
     }
 
+    function playTypeSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(650 + Math.random() * 150, now);
+      osc.frequency.exponentialRampToValueAtTime(300, now + 0.035);
+
+      gain.gain.setValueAtTime(0.04, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.035);
+    }
+
     function playWhooshSound() {
       if (!soundEnabled) return;
       const ctx = getAudioContext();
@@ -755,8 +978,8 @@
       osc.type = 'sine';
 
       const now = ctx.currentTime;
-      osc.frequency.setValueAtTime(400 + Math.random() * 200, now);
-      osc.frequency.exponentialRampToValueAtTime(150, now + 0.15);
+      osc.frequency.setValueAtTime(420 + Math.random() * 200, now);
+      osc.frequency.exponentialRampToValueAtTime(140, now + 0.15);
 
       gain.gain.setValueAtTime(0.18, now);
       gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
@@ -777,8 +1000,8 @@
       osc.type = 'triangle';
 
       const now = ctx.currentTime;
-      osc.frequency.setValueAtTime(550, now);
-      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+      osc.frequency.setValueAtTime(560, now);
+      osc.frequency.exponentialRampToValueAtTime(900, now + 0.08);
 
       gain.gain.setValueAtTime(0.2, now);
       gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
@@ -829,7 +1052,7 @@
     }
 
     /* ========================================================
-       THE DODGING "NO" BUTTON (Mobile & Desktop Optimized)
+       THE DODGING "NO" BUTTON
        ======================================================== */
     function dodgeNo(e) {
       if (e && e.cancelable) {
@@ -840,7 +1063,6 @@
       dodgeCount++;
       playWhooshSound();
 
-      // Mobile haptic feedback (supported on Android/Chrome)
       if (navigator.vibrate) {
         try { navigator.vibrate(35); } catch(err) {}
       }
@@ -894,14 +1116,14 @@
         return;
       }
 
-      // Safe bounds calculation so it never clips outside viewport (accounts for mobile bars)
+      // Safe bounds calculation so it never clips outside viewport
       noBtn.style.position = "fixed";
 
       const btnWidth = noBtn.offsetWidth || 120;
       const btnHeight = noBtn.offsetHeight || 50;
       const padding = 16;
-      const paddingTop = 75; // safe from mobile top notch / sound button
-      const paddingBottom = 85; // safe from mobile bottom navigation bar
+      const paddingTop = 75;
+      const paddingBottom = 85;
 
       const maxX = Math.max(padding + 10, window.innerWidth - btnWidth - padding);
       const maxY = Math.max(paddingTop + 10, window.innerHeight - btnHeight - paddingBottom);
@@ -909,7 +1131,7 @@
       let newX = Math.floor(Math.random() * (maxX - padding)) + padding;
       let newY = Math.floor(Math.random() * (maxY - paddingTop)) + paddingTop;
 
-      // Ensure it doesn't land directly on top of the YES button
+      // Ensure it doesn't land on top of the YES button
       const yesRect = yesBtn.getBoundingClientRect();
       if (
         newX < yesRect.right + 25 &&
@@ -953,7 +1175,6 @@
       playVictoryChime();
       startConfetti();
 
-      // Mobile celebratory haptic rumble
       if (navigator.vibrate) {
         try { navigator.vibrate([60, 40, 80, 40, 100]); } catch(err) {}
       }
@@ -962,7 +1183,7 @@
       const cView = document.getElementById("celebration-view");
       const noBtn = document.getElementById("no-btn");
 
-      // Animate No button exit if it's still visible
+      // Animate No button exit if still visible
       if (noBtn && noBtn.style.display !== "none") {
         const rect = noBtn.getBoundingClientRect();
         if (typeof spawnPoof === 'function') {
@@ -974,7 +1195,6 @@
         setTimeout(() => { noBtn.style.display = "none"; }, 450);
       }
 
-      // Transition views smoothly
       qView.style.display = "none";
       cView.style.display = "block";
 

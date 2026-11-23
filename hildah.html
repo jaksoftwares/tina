@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Hildah ❤️ | A Sweet Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff3377;
+      --primary-hover: #ff1a66;
+      --primary-glow: rgba(255, 51, 119, 0.45);
+      --secondary: #ff85a2;
+      --bg-gradient: linear-gradient(135deg, #ffd1dc 0%, #ffe4ec 35%, #fff0f5 70%, #ffc0cb 100%);
+      --card-bg: rgba(255, 255, 255, 0.92);
+      --card-border: rgba(255, 255, 255, 0.85);
+      --text-main: #2b1e25;
+      --text-muted: #7d6b75;
+      --shadow-sm: 0 8px 30px rgba(255, 80, 130, 0.15);
+      --shadow-lg: 0 20px 50px rgba(255, 50, 110, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100vw;
+      background: var(--bg-gradient);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ambient Floating Hearts Canvas */
+    #hearts-canvas, #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #confetti-canvas {
+      z-index: 999;
+    }
+
+    /* Sound Control Button */
+    .sound-toggle {
+      position: fixed;
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 182, 193, 0.6);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 15px rgba(255, 80, 120, 0.15);
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .sound-toggle:hover {
+      transform: scale(1.05);
+      background: #ffffff;
+    }
+
+    /* Main Container Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid var(--card-border);
+      border-radius: 32px;
+      padding: 40px 32px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Floating Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff0f5;
+      color: var(--primary);
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      padding: 6px 16px;
+      border-radius: 30px;
+      margin-bottom: 16px;
+      border: 1px dashed var(--secondary);
+      animation: pulseBadge 2.5s infinite;
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* Hero Bear Image */
+    .gif-wrapper {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gif-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 105, 150, 0.25) 0%, transparent 70%);
+      z-index: 0;
+      animation: glowPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    .bear-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 24px;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 8px 16px rgba(255, 90, 130, 0.25));
+      transition: transform 0.3s ease;
+    }
+
+    /* Headings */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--text-main);
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .ice-cream-highlight {
+      display: inline-block;
+      color: var(--primary);
+      font-weight: 700;
+      position: relative;
+    }
+
+    .ice-cream-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 130, 170, 0.3);
+      border-radius: 4px;
+      z-index: -1;
+    }
+
+    /* Buttons Container */
+    .buttons-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 80px;
+      margin-top: 10px;
+    }
+
+    button {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      padding: 15px 34px;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      touch-action: manipulation;
+    }
+
+    #yes-btn {
+      background: linear-gradient(135deg, #ff3377 0%, #ff5c8a 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 25px var(--primary-glow);
+      transform-origin: center center;
+      z-index: 20;
+    }
+
+    #yes-btn:hover {
+      box-shadow: 0 12px 32px rgba(255, 30, 100, 0.6);
+      transform: scale(1.05);
+    }
+
+    #yes-btn:active {
+      transform: scale(0.96);
+    }
+
+    #no-btn {
+      background: #ffffff;
+      color: #666;
+      border: 2px solid #ffd6e0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      z-index: 15;
+      white-space: nowrap;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    #no-btn:hover {
+      background: #fff8fa;
+    }
+
+    /* Footer Anonymous Tag */
+    .footer-note {
+      margin-top: 32px;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .footer-note .heart-icon {
+      color: var(--primary);
+      display: inline-block;
+      animation: heartbeat 1.4s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.28); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.22); }
+    }
+
+    .joke-subtext {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: var(--primary);
+      margin-top: 8px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .surrender-msg {
+      margin-top: 16px;
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      line-height: 1.35;
+      color: var(--primary);
+      background: #fff0f5;
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1.5px dashed var(--secondary);
+      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ========================================================
+       CELEBRATION SCREEN
+       ======================================================== */
+    .celebration-view {
+      display: none;
+      animation: celebrationIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes celebrationIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .celebration-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .celebration-sub {
+      font-size: 17px;
+      color: #44333c;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    /* Date Customizer Section */
+    .customizer-box {
+      background: #fff5f8;
+      border: 1px solid #ffe0ea;
+      border-radius: 20px;
+      padding: 18px 16px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .customizer-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .pill {
+      background: #ffffff;
+      border: 1.5px solid #ffd1dc;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(255, 51, 119, 0.3);
+      transform: translateY(-1px);
+    }
+
+    /* VIP Secret Date Pass (Ticket) */
+    .ticket-container {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7fa 100%);
+      border: 2px dashed #ff85a2;
+      border-radius: 22px;
+      padding: 20px 18px;
+      margin-bottom: 18px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 24px rgba(255, 50, 110, 0.12);
+    }
+
+    .ticket-header {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .ticket-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #2b1e25;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .ticket-details {
+      display: flex;
+      justify-content: space-around;
+      background: rgba(255, 230, 240, 0.5);
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin: 12px 0;
+      font-size: 13.5px;
+      color: #4a3340;
+    }
+
+    .ticket-col {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .ticket-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .ticket-val {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .ticket-status {
+      font-family: 'Caveat', cursive;
+      font-size: 20px;
+      color: #27ae60;
+      font-weight: 700;
+    }
+
+    /* Action Buttons (Screenshot / Copy Pass) */
+    .action-btn-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .copy-pass-btn {
+      flex: 1;
+      background: linear-gradient(135deg, #ff3377 0%, #ff5c8a 100%);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 15.5px;
+      font-weight: 700;
+      box-shadow: 0 6px 20px var(--primary-glow);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .copy-pass-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 30, 100, 0.5);
+    }
+
+    .copy-pass-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Secret Envelope Section */
+    .secret-letter {
+      margin-top: 10px;
+      background: #ffffff;
+      border: 1.5px dashed #ffb6c1;
+      border-radius: 18px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .secret-letter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 14px;
+    }
+
+    .secret-letter-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      color: #4a3640;
+      line-height: 1.4;
+      text-align: left;
+      margin-top: 0;
+    }
+
+    .secret-letter.open .secret-letter-body {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px solid #ffe6ed;
+    }
+
+    .secret-letter.open .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    .arrow-icon {
+      transition: transform 0.3s ease;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: rgba(35, 25, 30, 0.92);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 480px) {
+      body {
+        padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+      }
+      .card {
+        padding: 28px 18px 22px;
+        border-radius: 28px;
+        box-shadow: 0 16px 40px rgba(255, 50, 110, 0.2);
+      }
+      h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+      .subtitle {
+        font-size: 16px;
+        margin-bottom: 22px;
+        line-height: 1.45;
+      }
+      .badge {
+        font-size: 17px;
+        padding: 5px 14px;
+        margin-bottom: 12px;
+      }
+      .buttons-container {
+        min-height: 72px;
+        gap: 12px;
+      }
+      button {
+        padding: 13px 26px;
+        font-size: 17.5px;
+      }
+      .gif-wrapper {
+        width: 145px;
+        height: 145px;
+        margin-bottom: 16px;
+      }
+      .sound-toggle {
+        top: max(12px, env(safe-area-inset-top));
+        right: max(12px, env(safe-area-inset-right));
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .customizer-box {
+        padding: 15px 13px;
+        border-radius: 18px;
+      }
+      .pill {
+        padding: 8px 13px;
+        font-size: 13.5px;
+      }
+      .ticket-container {
+        padding: 16px 14px;
+      }
+      .secret-letter {
+        padding: 12px 14px;
+      }
+      .secret-letter-body {
+        font-size: 19px;
+      }
+      .joke-subtext {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts Background Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Audio Toggle -->
+  <button class="sound-toggle" onclick="toggleSound()" aria-label="Toggle sound">
+    <span id="sound-icon">🔊</span>
+    <span id="sound-text">Sound On</span>
+  </button>
+
+  <!-- Toast Notification -->
+  <div id="toast">📋 Date Pass Copied! Keep it safe 😉</div>
+
+  <!-- Main Card -->
+  <div class="card" id="main-card">
+    
+    <!-- QUESTION VIEW -->
+    <div id="question-view">
+      <div class="badge">
+        <span>✨ A Secret Message For You ✨</span>
+      </div>
+
+      <div class="gif-wrapper">
+        <img id="bear-img" 
+             class="bear-img" 
+             src="https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif" 
+             alt="Cute Bear"
+             onerror="this.onerror=null; this.src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZmdHNhcXZ3c3B0cmg5anV4d2h6eHRkMHJva2h0d3Joc2p6amw4eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif';">
+      </div>
+
+      <h1>Heyy Hildah 😊</h1>
+      <p class="subtitle">
+        Quick question...<br>
+        Will you go for <span class="ice-cream-highlight">ice cream</span> with me this week? 🍦✨
+      </p>
+
+      <div class="buttons-container" id="btn-container">
+        <button id="yes-btn" onclick="celebrateYes()">
+          YES 😍
+        </button>
+        <button id="no-btn" onmouseover="dodgeNo()" ontouchstart="dodgeNo(event)" onclick="dodgeNo(event)">
+          No 🙄
+        </button>
+      </div>
+
+      <div id="no-surrender-msg" class="surrender-msg" style="display:none;"></div>
+
+      <div class="footer-note">
+        <span>Made just for you with</span>
+        <span class="heart-icon">❤️</span>
+        <span>— from someone who loves your smile 😉</span>
+      </div>
+      <div class="joke-subtext">
+        (You might know who I am... or do you? 🕵️‍♂️✨)
+      </div>
+    </div>
+
+    <!-- CELEBRATION VIEW (Shown on YES) -->
+    <div id="celebration-view" class="celebration-view">
+      <div class="badge" style="background:#eafaf1; border-color:#82e0aa; color:#27ae60;">
+        <span>🎉 Mission Accomplished! 🥳</span>
+      </div>
+
+      <div class="gif-wrapper">
+        <img id="celebrate-bear-img" 
+             class="bear-img" 
+             src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-hugs.gif" 
+             alt="Happy Hugging Bears"
+             onerror="this.onerror=null; this.src='https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif';">
+      </div>
+
+      <h1 class="celebration-title">YAYYY HILDAH!! 🥳💖</h1>
+      <p class="celebration-sub">
+        I knew you couldn't say no 😏<br>
+        <strong>It's an official date! 🍦💌</strong>
+      </p>
+
+      <!-- Date Details Customizer -->
+      <div class="customizer-box">
+        <div class="customizer-title">
+          <span>🍨 Pick Your Ice Cream Craving:</span>
+        </div>
+        <div class="pill-group" id="flavor-group">
+          <div class="pill active" onclick="selectPill(this, 'flavor')">🍫 Double Chocolate</div>
+          <div class="pill" onclick="selectPill(this, 'flavor')">🍓 Strawberry Bliss</div>
+          <div class="pill" onclick="selectPill(this, 'flavor')">🍦 Salted Caramel</div>
+          <div class="pill" onclick="selectPill(this, 'flavor')">🍨 Cookie Dough</div>
+          <div class="pill" onclick="selectPill(this, 'flavor')">✨ Surprise Flavor!</div>
+        </div>
+
+        <div class="customizer-title" style="margin-top: 14px;">
+          <span>📅 Preferred Day:</span>
+        </div>
+        <div class="pill-group" id="day-group">
+          <div class="pill active" onclick="selectPill(this, 'day')">Friday Night ✨</div>
+          <div class="pill" onclick="selectPill(this, 'day')">Saturday ☀️</div>
+          <div class="pill" onclick="selectPill(this, 'day')">Sunday 🌸</div>
+          <div class="pill" onclick="selectPill(this, 'day')">Tonight! 🌙</div>
+        </div>
+      </div>
+
+      <!-- VIP Secret Date Ticket -->
+      <div class="ticket-container" id="date-ticket">
+        <div class="ticket-header">
+          <span>🎟️ Official Date Voucher 🎟️</span>
+        </div>
+        <div class="ticket-name">For Hildah ❤️</div>
+        <div style="font-size:12.5px; color:#777;">From: Your Secret Admirer 🕵️‍♂️✨</div>
+        
+        <div class="ticket-details">
+          <div class="ticket-col">
+            <span class="ticket-label">Order</span>
+            <span class="ticket-val" id="ticket-flavor">🍫 Double Chocolate</span>
+          </div>
+          <div class="ticket-col">
+            <span class="ticket-label">When</span>
+            <span class="ticket-val" id="ticket-day">Friday Night ✨</span>
+          </div>
+        </div>
+
+        <div class="ticket-status">
+          ✓ Confirmed & Reserved for Two 🍦
+        </div>
+      </div>
+
+      <!-- Copy / Screenshot Pass Actions -->
+      <div class="action-btn-row">
+        <button class="copy-pass-btn" onclick="copyDatePass()">
+          <span>📋 Copy Date Pass</span>
+        </button>
+      </div>
+
+      <!-- Secret Note Toggle -->
+      <div class="secret-letter" onclick="toggleSecretNote(this)">
+        <div class="secret-letter-header">
+          <span>💌 A secret note from your admirer</span>
+          <span class="arrow-icon">▼</span>
+        </div>
+        <div class="secret-letter-body">
+          Hildah, your smile is truly one in a million.<br>
+          I've wanted to treat you to the sweetest ice cream date for a while now. Keep this date pass safe... I'll come claim our date soon! 😉🍦❤️<br>
+          <span style="font-family:'Outfit'; font-size:14px; font-weight:600; color:#ff3377; display:block; margin-top:6px;">— Your Secret Admirer 🕵️‍♂️✨</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    /* ========================================================
+       STATE & VARIABLES
+       ======================================================== */
+    let dodgeCount = 0;
+    let isNoSurrendered = false;
+    let soundEnabled = true;
+    let selectedFlavor = "🍫 Double Chocolate";
+    let selectedDay = "Friday Night ✨";
+
+    // Progressive psychological dodge sequence for Hildah
+    const dodgeStages = [
+      { text: "No 🙄", yesScale: 1.06, noScale: 1.0, bear: null },
+      { text: "Wait, are you sure? 🥺", yesScale: 1.16, noScale: 0.96, bear: 0 },
+      { text: "Think again! 🍦", yesScale: 1.28, noScale: 0.92, bear: 0 },
+      { text: "Ice cream on me though! 🍨", yesScale: 1.42, noScale: 0.88, bear: 1 },
+      { text: "You can't say no to mystery! 🕵️‍♂️✨", yesScale: 1.56, noScale: 0.82, bear: 1 },
+      { text: "I'm running out of breath! 🏃‍♂️💨", yesScale: 1.70, noScale: 0.75, bear: 2 },
+      { text: "I give up! Bye! 🏳️💨", yesScale: 1.85, noScale: 0, bear: 2 }
+    ];
+
+    const sadBears = [
+      "https://media.tenor.com/0v8bYk4-zJIAAAAAC/bubu-dudu-crying.gif",
+      "https://media.tenor.com/T_vY4Ea_t-IAAAAAC/sad-bear.gif",
+      "https://media.tenor.com/c3GZgB_VdGAAAAAC/bear-sad.gif"
+    ];
+
+    /* ========================================================
+       WEB AUDIO API SOUND EFFECTS
+       ======================================================== */
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          audioCtx = new AudioContext();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playWhooshSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(420 + Math.random() * 200, now);
+      osc.frequency.exponentialRampToValueAtTime(140, now + 0.15);
+
+      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.15);
+    }
+
+    function playPopSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(560, now);
+      osc.frequency.exponentialRampToValueAtTime(900, now + 0.08);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    }
+
+    function playVictoryChime() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      const now = ctx.currentTime;
+
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.1);
+
+        gain.gain.setValueAtTime(0, now + idx * 0.1);
+        gain.gain.linearRampToValueAtTime(0.25, now + idx * 0.1 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.5);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.1);
+        osc.stop(now + idx * 0.1 + 0.55);
+      });
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('sound-icon');
+      const text = document.getElementById('sound-text');
+      if (soundEnabled) {
+        icon.innerText = "🔊";
+        text.innerText = "Sound On";
+        playPopSound();
+      } else {
+        icon.innerText = "🔇";
+        text.innerText = "Sound Off";
+      }
+    }
+
+    /* ========================================================
+       THE DODGING "NO" BUTTON
+       ======================================================== */
+    function dodgeNo(e) {
+      if (e && e.cancelable) {
+        e.preventDefault();
+      }
+      if (isNoSurrendered) return;
+
+      dodgeCount++;
+      playWhooshSound();
+
+      if (navigator.vibrate) {
+        try { navigator.vibrate(35); } catch(err) {}
+      }
+
+      const noBtn = document.getElementById("no-btn");
+      const yesBtn = document.getElementById("yes-btn");
+      const bearImg = document.getElementById("bear-img");
+
+      const stageIndex = Math.min(dodgeCount, dodgeStages.length - 1);
+      const stage = dodgeStages[stageIndex];
+
+      noBtn.innerText = stage.text;
+
+      // Gradually grow the YES button
+      yesBtn.style.transform = `scale(${stage.yesScale})`;
+
+      // Change bear reaction image
+      if (stage.bear !== null && sadBears[stage.bear]) {
+        bearImg.src = sadBears[stage.bear];
+      }
+
+      // Check if this is the final surrender stage!
+      if (dodgeCount >= dodgeStages.length - 1) {
+        isNoSurrendered = true;
+
+        const rect = noBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        if (typeof spawnPoof === 'function') {
+          spawnPoof(centerX, centerY);
+        }
+        playPopSound();
+
+        noBtn.style.transition = "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease";
+        noBtn.style.transform = "scale(0) rotate(540deg)";
+        noBtn.style.opacity = "0";
+
+        setTimeout(() => {
+          noBtn.style.display = "none";
+          const msg = document.getElementById("no-surrender-msg");
+          if (msg) {
+            msg.innerHTML = "🏳️ The 'No' button gave up and ran away!<br>Looks like you HAVE to say YES now Hildah 😏💖";
+            msg.style.display = "inline-block";
+          }
+          yesBtn.innerHTML = "YES 😍 (Only choice left!)";
+          yesBtn.style.transform = "scale(1.85)";
+          bearImg.src = "https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif";
+        }, 480);
+
+        return;
+      }
+
+      // Safe bounds calculation so it never clips outside viewport
+      noBtn.style.position = "fixed";
+
+      const btnWidth = noBtn.offsetWidth || 120;
+      const btnHeight = noBtn.offsetHeight || 50;
+      const padding = 16;
+      const paddingTop = 75;
+      const paddingBottom = 85;
+
+      const maxX = Math.max(padding + 10, window.innerWidth - btnWidth - padding);
+      const maxY = Math.max(paddingTop + 10, window.innerHeight - btnHeight - paddingBottom);
+
+      let newX = Math.floor(Math.random() * (maxX - padding)) + padding;
+      let newY = Math.floor(Math.random() * (maxY - paddingTop)) + paddingTop;
+
+      // Ensure it doesn't land directly on top of the YES button
+      const yesRect = yesBtn.getBoundingClientRect();
+      if (
+        newX < yesRect.right + 25 &&
+        newX + btnWidth > yesRect.left - 25 &&
+        newY < yesRect.bottom + 25 &&
+        newY + btnHeight > yesRect.top - 25
+      ) {
+        newY = (newY + 130) % maxY;
+        if (newY < paddingTop) newY = paddingTop;
+      }
+
+      // Playful tilt on movement
+      const rot = (Math.random() - 0.5) * 22;
+      noBtn.style.transform = `rotate(${rot}deg) scale(${stage.noScale})`;
+      noBtn.style.left = `${newX}px`;
+      noBtn.style.top = `${newY}px`;
+    }
+
+    // Proximity dodge on mobile / touch
+    function checkProximityDodge(x, y) {
+      if (isNoSurrendered) return;
+      const qView = document.getElementById("question-view");
+      if (!qView || qView.style.display === "none") return;
+      const noBtn = document.getElementById("no-btn");
+      if (!noBtn || noBtn.style.display === "none") return;
+
+      const rect = noBtn.getBoundingClientRect();
+      const btnCenterX = rect.left + rect.width / 2;
+      const btnCenterY = rect.top + rect.height / 2;
+      const dist = Math.hypot(x - btnCenterX, y - btnCenterY);
+
+      if (dist < 55) {
+        dodgeNo();
+      }
+    }
+
+    /* ========================================================
+       CELEBRATE YES CLICK
+       ======================================================== */
+    function celebrateYes() {
+      playVictoryChime();
+      startConfetti();
+
+      if (navigator.vibrate) {
+        try { navigator.vibrate([60, 40, 80, 40, 100]); } catch(err) {}
+      }
+
+      const qView = document.getElementById("question-view");
+      const cView = document.getElementById("celebration-view");
+      const noBtn = document.getElementById("no-btn");
+
+      // Animate No button exit if still visible
+      if (noBtn && noBtn.style.display !== "none") {
+        const rect = noBtn.getBoundingClientRect();
+        if (typeof spawnPoof === 'function') {
+          spawnPoof(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        }
+        noBtn.style.transition = "transform 0.45s ease, opacity 0.35s ease";
+        noBtn.style.transform = "scale(0) rotate(540deg)";
+        noBtn.style.opacity = "0";
+        setTimeout(() => { noBtn.style.display = "none"; }, 450);
+      }
+
+      qView.style.display = "none";
+      cView.style.display = "block";
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ========================================================
+       DATE & FLAVOR CUSTOMIZER
+       ======================================================== */
+    function selectPill(elem, type) {
+      playPopSound();
+      if (navigator.vibrate) {
+        try { navigator.vibrate(25); } catch(err) {}
+      }
+
+      const parent = elem.parentElement;
+      const pills = parent.querySelectorAll('.pill');
+      pills.forEach(p => p.classList.remove('active'));
+      elem.classList.add('active');
+
+      if (type === 'flavor') {
+        selectedFlavor = elem.innerText.trim();
+        document.getElementById('ticket-flavor').innerText = selectedFlavor;
+      } else if (type === 'day') {
+        selectedDay = elem.innerText.trim();
+        document.getElementById('ticket-day').innerText = selectedDay;
+      }
+    }
+
+    function copyDatePass() {
+      playPopSound();
+      if (navigator.vibrate) {
+        try { navigator.vibrate(40); } catch(err) {}
+      }
+
+      const text = `🍦 OFFICIAL ICE CREAM DATE VOUCHER 🎟️\nFor: Hildah ❤️\nWith: Secret Admirer 🕵️‍♂️✨\n🍨 Flavor: ${selectedFlavor}\n📅 Day: ${selectedDay}\nStatus: Confirmed & Reserved for Two! 💕`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast("📋 Date Voucher Copied! Keep it safe 😉");
+        }).catch(() => {
+          showToast("📸 Take a screenshot of your pass! 🍦");
+        });
+      } else {
+        showToast("📸 Take a screenshot of your pass! 🍦");
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      toast.innerText = msg;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    function toggleSecretNote(element) {
+      playPopSound();
+      element.classList.toggle('open');
+    }
+
+    /* ========================================================
+       FLOATING HEARTS & TOUCH SPARKLES BACKGROUND
+       ======================================================== */
+    const heartsCanvas = document.getElementById('hearts-canvas');
+    const heartsCtx = heartsCanvas.getContext('2d');
+    let hearts = [];
+    let touchHearts = [];
+
+    function resizeHeartsCanvas() {
+      heartsCanvas.width = window.innerWidth;
+      heartsCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeHeartsCanvas);
+    resizeHeartsCanvas();
+
+    function createHeart() {
+      return {
+        x: Math.random() * heartsCanvas.width,
+        y: heartsCanvas.height + 20,
+        size: Math.random() * 14 + 10,
+        speedY: Math.random() * 1.2 + 0.6,
+        speedX: Math.sin(Math.random() * Math.PI) * 0.8,
+        opacity: Math.random() * 0.5 + 0.2,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        color: ['#ff85a2', '#ffaec0', '#ff5c8a', '#ff9bb2'][Math.floor(Math.random() * 4)]
+      };
+    }
+
+    for (let i = 0; i < 16; i++) {
+      const h = createHeart();
+      h.y = Math.random() * heartsCanvas.height;
+      hearts.push(h);
+    }
+
+    function spawnTouchSparkle(x, y) {
+      const colors = ['#ff3377', '#ff85a2', '#ff5c8a', '#ff9bb2', '#ffaec0'];
+      for (let i = 0; i < 3; i++) {
+        touchHearts.push({
+          x: x + (Math.random() - 0.5) * 16,
+          y: y + (Math.random() - 0.5) * 16,
+          size: Math.random() * 8 + 8,
+          speedY: Math.random() * 1.8 + 1.2,
+          speedX: (Math.random() - 0.5) * 1.6,
+          opacity: 0.95,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function spawnPoof(x, y) {
+      const colors = ['#ff3377', '#ff85a2', '#ffd1dc', '#ffffff', '#ffaec0'];
+      for (let i = 0; i < 22; i++) {
+        touchHearts.push({
+          x: x + (Math.random() - 0.5) * 25,
+          y: y + (Math.random() - 0.5) * 25,
+          size: Math.random() * 11 + 7,
+          speedY: (Math.random() - 0.5) * 5 - 1.2,
+          speedX: (Math.random() - 0.5) * 5,
+          opacity: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    // Touch and pointer interaction listeners
+    window.addEventListener('pointerdown', (e) => {
+      spawnTouchSparkle(e.clientX, e.clientY);
+      checkProximityDodge(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener('pointermove', (e) => {
+      if (Math.random() > 0.68) {
+        spawnTouchSparkle(e.clientX, e.clientY);
+      }
+      checkProximityDodge(e.clientX, e.clientY);
+    }, { passive: true });
+
+    // Audio unlock on first touch for mobile browsers (iOS Safari & Android)
+    ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+      window.addEventListener(evt, () => {
+        getAudioContext();
+      }, { once: true, passive: true });
+    });
+
+    function drawHeartShape(ctx, x, y, size) {
+      ctx.beginPath();
+      const topCurveHeight = size * 0.3;
+      ctx.moveTo(x, y + topCurveHeight);
+      ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+      ctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + size, x, y + size);
+      ctx.bezierCurveTo(x, y + size, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+      ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function animateHearts() {
+      heartsCtx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
+
+      // Background ambient hearts
+      hearts.forEach((h, index) => {
+        h.y -= h.speedY;
+        h.x += Math.sin(h.y * 0.01) * 0.5;
+        h.rotation += h.rotationSpeed;
+
+        heartsCtx.save();
+        heartsCtx.fillStyle = h.color;
+        heartsCtx.globalAlpha = h.opacity;
+        drawHeartShape(heartsCtx, h.x, h.y, h.size);
+        heartsCtx.restore();
+
+        if (h.y < -30) {
+          hearts[index] = createHeart();
+        }
+      });
+
+      // Interactive touch hearts
+      for (let i = touchHearts.length - 1; i >= 0; i--) {
+        const th = touchHearts[i];
+        th.y -= th.speedY;
+        th.x += th.speedX;
+        th.opacity -= 0.025;
+        if (th.opacity <= 0) {
+          touchHearts.splice(i, 1);
+        } else {
+          heartsCtx.save();
+          heartsCtx.fillStyle = th.color;
+          heartsCtx.globalAlpha = Math.max(0, th.opacity);
+          drawHeartShape(heartsCtx, th.x, th.y, th.size);
+          heartsCtx.restore();
+        }
+      }
+
+      requestAnimationFrame(animateHearts);
+    }
+    animateHearts();
+
+    /* ========================================================
+       CONFETTI SYSTEM (Pure Canvas 60fps)
+       ======================================================== */
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const confettiCtx = confettiCanvas.getContext('2d');
+    let confettiParticles = [];
+    let confettiActive = false;
+
+    function resizeConfettiCanvas() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeConfettiCanvas);
+    resizeConfettiCanvas();
+
+    function startConfetti() {
+      confettiActive = true;
+      confettiParticles = [];
+      const colors = ['#ff3377', '#ff85a2', '#ffd1dc', '#ffd700', '#ff69b4', '#00e5ff', '#a855f7'];
+
+      for (let i = 0; i < 130; i++) {
+        confettiParticles.push({
+          x: confettiCanvas.width / 2 + (Math.random() - 0.5) * 60,
+          y: confettiCanvas.height / 2 + (Math.random() - 0.5) * 60,
+          w: Math.random() * 10 + 6,
+          h: Math.random() * 7 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 18,
+          vy: (Math.random() - 0.8) * 18 - 4,
+          gravity: 0.35,
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 12,
+          opacity: 1,
+          shape: Math.random() > 0.4 ? 'rect' : 'heart'
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      if (!confettiActive) return;
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+      let aliveCount = 0;
+      confettiParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.vx *= 0.98;
+        p.rotation += p.rotationSpeed;
+        p.opacity -= 0.005;
+
+        if (p.opacity > 0 && p.y < confettiCanvas.height + 50) {
+          aliveCount++;
+          confettiCtx.save();
+          confettiCtx.translate(p.x, p.y);
+          confettiCtx.rotate((p.rotation * Math.PI) / 180);
+          confettiCtx.fillStyle = p.color;
+          confettiCtx.globalAlpha = Math.max(0, p.opacity);
+
+          if (p.shape === 'rect') {
+            confettiCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          } else {
+            drawHeartShape(confettiCtx, -p.w / 2, -p.h / 2, p.w);
+          }
+
+          confettiCtx.restore();
+        }
+      });
+
+      if (aliveCount > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        confettiActive = false;
+        confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    }
+  </script>
+</body>
+</html>
