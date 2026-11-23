@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Tina ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body { background: #ffe4ec; font-family: Arial; text-align: center; padding-top: 70px; overflow: hidden; }
+  h1 { color: #ff2d75; font-size: 32px; }
+  h2 { color: #333; }
+  button { padding: 15px 32px; font-size: 20px; border: none; border-radius: 20px; cursor: pointer; margin: 10px; font-weight: bold; }
+  #yes { background: #ff2d75; color: white; box-shadow: 0 5px 15px rgba(255,45,117,0.4); }
+  #no { background: white; color: black; position: absolute; }
+  img { width: 200px; border-radius: 20px; }
+</style>
+</head>
+<body>
+
+<img src="https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif" alt="cute">
+<h1>Heyy Tina 😊</h1>
+<h2>Quick question...<br>Will you go for ice cream with me this week? 🍦</h2>
+
+<button id="yes" onclick="yesClicked()">YES 😍</button>
+<button id="no" onmouseover="moveButton()" ontouchstart="moveButton()" onclick="moveButton()">No 🙄</button>
+
+<p style="color:#888; margin-top:40px;">Made just for you - by someone who likes your smile 😉</p>
+
+<script>
+function moveButton() {
+  let btn = document.getElementById("no");
+  let x = Math.random() * (window.innerWidth - 120);
+  let y = Math.random() * (window.innerHeight - 60);
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+function yesClicked() {
+  document.body.innerHTML = "<h1>YAYYY TINA!! 🥳❤️</h1><h2>I knew you couldn't say no 😏<br>Check your WhatsApp, I'm texting you now!</h2><p style='font-size:60px'>🍦💌</p><p>It's a date!</p>";
+}
+</script>
+
+</body>
+</html>
