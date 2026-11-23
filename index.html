@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For Tina ❤️ | A Sweet Surprise</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>My Empress ❤️ | A Sweet Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
@@ -33,6 +33,7 @@
 
     body {
       min-height: 100vh;
+      min-height: 100dvh;
       width: 100vw;
       background: var(--bg-gradient);
       background-size: 200% 200%;
@@ -44,7 +45,7 @@
       justify-content: center;
       overflow-x: hidden;
       overflow-y: auto;
-      padding: 20px 15px;
+      padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
       position: relative;
     }
 
@@ -72,12 +73,13 @@
     /* Sound Control Button */
     .sound-toggle {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
       z-index: 50;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 182, 193, 0.5);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 182, 193, 0.6);
       padding: 8px 14px;
       border-radius: 20px;
       font-size: 13px;
@@ -89,6 +91,7 @@
       gap: 6px;
       box-shadow: 0 4px 15px rgba(255, 80, 120, 0.15);
       transition: all 0.3s ease;
+      touch-action: manipulation;
     }
 
     .sound-toggle:hover {
@@ -271,7 +274,7 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       z-index: 15;
       white-space: nowrap;
-      transition: transform 0.2s cubic-bezier(0.18, 0.89, 0.32, 1.28), left 0.25s ease, top 0.25s ease;
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     #no-btn:hover {
@@ -310,6 +313,25 @@
       margin-top: 8px;
       font-weight: 700;
       letter-spacing: 0.3px;
+    }
+
+    .surrender-msg {
+      margin-top: 16px;
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      line-height: 1.35;
+      color: var(--primary);
+      background: #fff0f5;
+      padding: 10px 18px;
+      border-radius: 20px;
+      border: 1.5px dashed var(--secondary);
+      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-block;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
     }
 
     /* ========================================================
@@ -476,25 +498,70 @@
       transition: transform 0.3s ease;
     }
 
-    /* Responsive adjustments */
+    /* Mobile responsive optimizations */
     @media (max-width: 480px) {
+      body {
+        padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+      }
       .card {
-        padding: 32px 20px;
-        border-radius: 26px;
+        padding: 28px 18px 22px;
+        border-radius: 28px;
+        box-shadow: 0 16px 40px rgba(255, 50, 110, 0.2);
       }
       h1 {
         font-size: 28px;
+        margin-bottom: 8px;
       }
       .subtitle {
         font-size: 16px;
+        margin-bottom: 22px;
+        line-height: 1.45;
+      }
+      .badge {
+        font-size: 17px;
+        padding: 5px 14px;
+        margin-bottom: 12px;
+      }
+      .buttons-container {
+        min-height: 72px;
+        gap: 12px;
       }
       button {
         padding: 13px 26px;
-        font-size: 17px;
+        font-size: 17.5px;
       }
       .gif-wrapper {
-        width: 150px;
-        height: 150px;
+        width: 145px;
+        height: 145px;
+        margin-bottom: 16px;
+      }
+      .sound-toggle {
+        top: max(12px, env(safe-area-inset-top));
+        right: max(12px, env(safe-area-inset-right));
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .customizer-box {
+        padding: 15px 13px;
+        border-radius: 18px;
+      }
+      .pill {
+        padding: 8px 13px;
+        font-size: 13.5px;
+      }
+      .whatsapp-btn {
+        padding: 16px 20px;
+        font-size: 16.5px;
+        border-radius: 16px;
+      }
+      .secret-letter {
+        padding: 12px 14px;
+      }
+      .secret-letter-body {
+        font-size: 19px;
+      }
+      .joke-subtext {
+        font-size: 18px;
       }
     }
   </style>
@@ -543,6 +610,8 @@
           No 🙄
         </button>
       </div>
+
+      <div id="no-surrender-msg" class="surrender-msg" style="display:none;"></div>
 
       <div class="footer-note">
         <span>Made just for you with</span>
@@ -636,23 +705,20 @@
     const YOUR_WHATSAPP_NUMBER = "254791620401";
 
     let dodgeCount = 0;
+    let isNoSurrendered = false;
     let soundEnabled = true;
     let selectedFlavor = "🍫 Double Chocolate";
     let selectedDay = "Friday Night ✨";
 
-    const noTexts = [
-      "No 🙄",
-      "Wait, are you sure? 🥺",
-      "Think again! 🍦",
-      "Ice cream on me though! 🍨",
-      "I am Elvis, but call me anytime! 📞😏",
-      "Look how sad the bear is! 😭",
-      "Nice try! Too slow 🏃‍♂️💨",
-      "Wrong button Tina! 👉",
-      "Error 404: 'No' not found 🤖",
-      "Pretty please? 🍒",
-      "Just press YES already! 🥰",
-      "You can't escape! 😂❤️"
+    // Progressive psychological dodge sequence
+    const dodgeStages = [
+      { text: "No 🙄", yesScale: 1.06, noScale: 1.0, bear: null },
+      { text: "Wait, are you sure? 🥺", yesScale: 1.16, noScale: 0.96, bear: 0 },
+      { text: "Think again! 🍦", yesScale: 1.28, noScale: 0.92, bear: 0 },
+      { text: "Ice cream on me though! 🍨", yesScale: 1.42, noScale: 0.88, bear: 1 },
+      { text: "I am Elvis, but call me anytime! 📞😏", yesScale: 1.56, noScale: 0.82, bear: 1 },
+      { text: "I'm running out of breath! 🏃‍♂️💨", yesScale: 1.70, noScale: 0.75, bear: 2 },
+      { text: "I give up! Bye! 🏳️💨", yesScale: 1.85, noScale: 0, bear: 2 }
     ];
 
     const sadBears = [
@@ -763,31 +829,69 @@
     }
 
     /* ========================================================
-       THE DODGING "NO" BUTTON
+       THE DODGING "NO" BUTTON (Mobile & Desktop Optimized)
        ======================================================== */
     function dodgeNo(e) {
-      if (e) {
+      if (e && e.cancelable) {
         e.preventDefault();
       }
+      if (isNoSurrendered) return;
+
       dodgeCount++;
       playWhooshSound();
+
+      // Mobile haptic feedback (supported on Android/Chrome)
+      if (navigator.vibrate) {
+        try { navigator.vibrate(35); } catch(err) {}
+      }
 
       const noBtn = document.getElementById("no-btn");
       const yesBtn = document.getElementById("yes-btn");
       const bearImg = document.getElementById("bear-img");
 
-      // Cycle cute texts
-      const textIndex = dodgeCount % noTexts.length;
-      noBtn.innerText = noTexts[textIndex];
+      const stageIndex = Math.min(dodgeCount, dodgeStages.length - 1);
+      const stage = dodgeStages[stageIndex];
+
+      noBtn.innerText = stage.text;
 
       // Gradually grow the YES button
-      const scale = Math.min(1 + dodgeCount * 0.12, 1.85);
-      yesBtn.style.transform = `scale(${scale})`;
+      yesBtn.style.transform = `scale(${stage.yesScale})`;
 
-      // Change bear reaction image occasionally
-      if (dodgeCount > 1) {
-        const sadIndex = (dodgeCount - 2) % sadBears.length;
-        bearImg.src = sadBears[sadIndex];
+      // Change bear reaction image
+      if (stage.bear !== null && sadBears[stage.bear]) {
+        bearImg.src = sadBears[stage.bear];
+      }
+
+      // Check if it's the final surrender stage!
+      if (dodgeCount >= dodgeStages.length - 1) {
+        isNoSurrendered = true;
+
+        const rect = noBtn.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        if (typeof spawnPoof === 'function') {
+          spawnPoof(centerX, centerY);
+        }
+        playPopSound();
+
+        noBtn.style.transition = "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease";
+        noBtn.style.transform = "scale(0) rotate(540deg)";
+        noBtn.style.opacity = "0";
+
+        setTimeout(() => {
+          noBtn.style.display = "none";
+          const msg = document.getElementById("no-surrender-msg");
+          if (msg) {
+            msg.innerHTML = "🏳️ The 'No' button gave up and ran away!<br>Looks like you HAVE to say YES now Tina 😏💖";
+            msg.style.display = "inline-block";
+          }
+          yesBtn.innerHTML = "YES 😍 (Only choice left!)";
+          yesBtn.style.transform = "scale(1.85)";
+          bearImg.src = "https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif";
+        }, 480);
+
+        return;
       }
 
       // Safe bounds calculation so it never clips outside viewport (accounts for mobile bars)
@@ -795,28 +899,51 @@
 
       const btnWidth = noBtn.offsetWidth || 120;
       const btnHeight = noBtn.offsetHeight || 50;
-      const padding = 20;
-      const paddingBottom = 75;
+      const padding = 16;
+      const paddingTop = 75; // safe from mobile top notch / sound button
+      const paddingBottom = 85; // safe from mobile bottom navigation bar
 
       const maxX = Math.max(padding + 10, window.innerWidth - btnWidth - padding);
-      const maxY = Math.max(padding + 10, window.innerHeight - btnHeight - paddingBottom);
+      const maxY = Math.max(paddingTop + 10, window.innerHeight - btnHeight - paddingBottom);
 
       let newX = Math.floor(Math.random() * (maxX - padding)) + padding;
-      let newY = Math.floor(Math.random() * (maxY - padding)) + padding;
+      let newY = Math.floor(Math.random() * (maxY - paddingTop)) + paddingTop;
 
       // Ensure it doesn't land directly on top of the YES button
       const yesRect = yesBtn.getBoundingClientRect();
       if (
-        newX < yesRect.right + 20 &&
-        newX + btnWidth > yesRect.left - 20 &&
-        newY < yesRect.bottom + 20 &&
-        newY + btnHeight > yesRect.top - 20
+        newX < yesRect.right + 25 &&
+        newX + btnWidth > yesRect.left - 25 &&
+        newY < yesRect.bottom + 25 &&
+        newY + btnHeight > yesRect.top - 25
       ) {
-        newY = (newY + 120) % maxY;
+        newY = (newY + 130) % maxY;
+        if (newY < paddingTop) newY = paddingTop;
       }
 
+      // Playful tilt on movement
+      const rot = (Math.random() - 0.5) * 22;
+      noBtn.style.transform = `rotate(${rot}deg) scale(${stage.noScale})`;
       noBtn.style.left = `${newX}px`;
       noBtn.style.top = `${newY}px`;
+    }
+
+    // Proximity dodge on mobile / touch
+    function checkProximityDodge(x, y) {
+      if (isNoSurrendered) return;
+      const qView = document.getElementById("question-view");
+      if (!qView || qView.style.display === "none") return;
+      const noBtn = document.getElementById("no-btn");
+      if (!noBtn || noBtn.style.display === "none") return;
+
+      const rect = noBtn.getBoundingClientRect();
+      const btnCenterX = rect.left + rect.width / 2;
+      const btnCenterY = rect.top + rect.height / 2;
+      const dist = Math.hypot(x - btnCenterX, y - btnCenterY);
+
+      if (dist < 55) {
+        dodgeNo();
+      }
     }
 
     /* ========================================================
@@ -826,16 +953,32 @@
       playVictoryChime();
       startConfetti();
 
-      // Transition views smoothly
+      // Mobile celebratory haptic rumble
+      if (navigator.vibrate) {
+        try { navigator.vibrate([60, 40, 80, 40, 100]); } catch(err) {}
+      }
+
       const qView = document.getElementById("question-view");
       const cView = document.getElementById("celebration-view");
       const noBtn = document.getElementById("no-btn");
 
-      if (noBtn) noBtn.style.display = "none";
+      // Animate No button exit if it's still visible
+      if (noBtn && noBtn.style.display !== "none") {
+        const rect = noBtn.getBoundingClientRect();
+        if (typeof spawnPoof === 'function') {
+          spawnPoof(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        }
+        noBtn.style.transition = "transform 0.45s ease, opacity 0.35s ease";
+        noBtn.style.transform = "scale(0) rotate(540deg)";
+        noBtn.style.opacity = "0";
+        setTimeout(() => { noBtn.style.display = "none"; }, 450);
+      }
 
+      // Transition views smoothly
       qView.style.display = "none";
       cView.style.display = "block";
 
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       updateWhatsAppUrl();
     }
 
@@ -844,6 +987,10 @@
        ======================================================== */
     function selectPill(elem, type) {
       playPopSound();
+      if (navigator.vibrate) {
+        try { navigator.vibrate(25); } catch(err) {}
+      }
+
       const parent = elem.parentElement;
       const pills = parent.querySelectorAll('.pill');
       pills.forEach(p => p.classList.remove('active'));
@@ -877,11 +1024,12 @@
     }
 
     /* ========================================================
-       FLOATING HEARTS BACKGROUND
+       FLOATING HEARTS & TOUCH SPARKLES BACKGROUND
        ======================================================== */
     const heartsCanvas = document.getElementById('hearts-canvas');
     const heartsCtx = heartsCanvas.getContext('2d');
     let hearts = [];
+    let touchHearts = [];
 
     function resizeHeartsCanvas() {
       heartsCanvas.width = window.innerWidth;
@@ -910,6 +1058,56 @@
       hearts.push(h);
     }
 
+    function spawnTouchSparkle(x, y) {
+      const colors = ['#ff3377', '#ff85a2', '#ff5c8a', '#ff9bb2', '#ffaec0'];
+      for (let i = 0; i < 3; i++) {
+        touchHearts.push({
+          x: x + (Math.random() - 0.5) * 16,
+          y: y + (Math.random() - 0.5) * 16,
+          size: Math.random() * 8 + 8,
+          speedY: Math.random() * 1.8 + 1.2,
+          speedX: (Math.random() - 0.5) * 1.6,
+          opacity: 0.95,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function spawnPoof(x, y) {
+      const colors = ['#ff3377', '#ff85a2', '#ffd1dc', '#ffffff', '#ffaec0'];
+      for (let i = 0; i < 22; i++) {
+        touchHearts.push({
+          x: x + (Math.random() - 0.5) * 25,
+          y: y + (Math.random() - 0.5) * 25,
+          size: Math.random() * 11 + 7,
+          speedY: (Math.random() - 0.5) * 5 - 1.2,
+          speedX: (Math.random() - 0.5) * 5,
+          opacity: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    // Touch and pointer interaction listeners
+    window.addEventListener('pointerdown', (e) => {
+      spawnTouchSparkle(e.clientX, e.clientY);
+      checkProximityDodge(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener('pointermove', (e) => {
+      if (Math.random() > 0.68) {
+        spawnTouchSparkle(e.clientX, e.clientY);
+      }
+      checkProximityDodge(e.clientX, e.clientY);
+    }, { passive: true });
+
+    // Audio unlock on first touch for mobile browsers (iOS Safari & Android)
+    ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+      window.addEventListener(evt, () => {
+        getAudioContext();
+      }, { once: true, passive: true });
+    });
+
     function drawHeartShape(ctx, x, y, size) {
       ctx.beginPath();
       const topCurveHeight = size * 0.3;
@@ -925,6 +1123,7 @@
     function animateHearts() {
       heartsCtx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
 
+      // Background ambient hearts
       hearts.forEach((h, index) => {
         h.y -= h.speedY;
         h.x += Math.sin(h.y * 0.01) * 0.5;
@@ -940,6 +1139,23 @@
           hearts[index] = createHeart();
         }
       });
+
+      // Interactive touch hearts
+      for (let i = touchHearts.length - 1; i >= 0; i--) {
+        const th = touchHearts[i];
+        th.y -= th.speedY;
+        th.x += th.speedX;
+        th.opacity -= 0.025;
+        if (th.opacity <= 0) {
+          touchHearts.splice(i, 1);
+        } else {
+          heartsCtx.save();
+          heartsCtx.fillStyle = th.color;
+          heartsCtx.globalAlpha = Math.max(0, th.opacity);
+          drawHeartShape(heartsCtx, th.x, th.y, th.size);
+          heartsCtx.restore();
+        }
+      }
 
       requestAnimationFrame(animateHearts);
     }
