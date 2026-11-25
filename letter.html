@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Tina ❤️ | A Letter Just For You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff2d75;
+      --primary-hover: #ff1262;
+      --primary-glow: rgba(255, 45, 117, 0.4);
+      --secondary: #ff85a2;
+      --bg-gradient: linear-gradient(135deg, #ffd1dc 0%, #ffe4ec 35%, #fff0f5 70%, #ffc0cb 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-border: rgba(255, 255, 255, 0.85);
+      --text-main: #2b1e25;
+      --text-muted: #7d6b75;
+      --shadow-lg: 0 20px 50px rgba(255, 45, 117, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      width: 100vw;
+      background: var(--bg-gradient);
+      background-size: 200% 200%;
+      animation: gradientShift 12s ease infinite;
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Ambient Canvas for Floating Petals and Confetti */
+    #hearts-canvas, #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #confetti-canvas {
+      z-index: 999;
+    }
+
+    /* Music & Sound Toggle */
+    .sound-toggle {
+      position: fixed;
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 182, 193, 0.6);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 15px rgba(255, 80, 120, 0.15);
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .sound-toggle:hover {
+      transform: scale(1.05);
+      background: #ffffff;
+    }
+
+    /* Main Container Card */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid var(--card-border);
+      border-radius: 32px;
+      padding: 38px 28px;
+      max-width: 440px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Big Envelope Icon / Seal */
+    .envelope-icon {
+      font-size: 68px;
+      line-height: 1;
+      margin-bottom: 12px;
+      display: inline-block;
+      animation: gentleBounce 2.5s infinite ease-in-out;
+      filter: drop-shadow(0 6px 16px rgba(255, 45, 117, 0.25));
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-8px) scale(1.06); }
+    }
+
+    /* Headings */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    p.lead-text {
+      color: #44333c;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    p.volume-hint {
+      color: #88747e;
+      font-size: 14.5px;
+      margin-bottom: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Button Styles */
+    button.action-btn {
+      background: linear-gradient(135deg, #ff2d75 0%, #ff5c8a 100%);
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-size: 19px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px var(--primary-glow);
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      touch-action: manipulation;
+    }
+
+    button.action-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px rgba(255, 45, 117, 0.55);
+    }
+
+    button.action-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* PAGE 2 — THE LETTER REVEAL */
+    .photo-wrapper {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 14px;
+    }
+
+    .photo-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 45, 117, 0.3) 0%, transparent 70%);
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3.5px solid var(--primary);
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 6px 14px rgba(255, 45, 117, 0.25));
+    }
+
+    /* Typewriter Card */
+    .letter-box {
+      background: linear-gradient(135deg, #ffffff 0%, #fff7fa 100%);
+      border: 1.5px solid #ffd4e2;
+      border-radius: 20px;
+      padding: 20px 22px;
+      margin: 16px 0 20px;
+      text-align: left;
+      position: relative;
+      box-shadow: 0 4px 18px rgba(255, 80, 130, 0.08);
+    }
+
+    .letter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #ffd4e2;
+    }
+
+    .letter-title {
+      font-family: 'Caveat', cursive;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .skip-btn {
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .skip-btn:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    #typed {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: #382830;
+      white-space: pre-wrap;
+      min-height: 140px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2.5px;
+      height: 1.15em;
+      background-color: var(--primary);
+      vertical-align: text-bottom;
+      animation: blink 0.75s infinite;
+      margin-left: 2px;
+      border-radius: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Reply Section (Revealed when typing completes) */
+    .reply-box {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .reply-box.revealed {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .reply-emojis {
+      font-size: 34px;
+      margin-bottom: 6px;
+      animation: heartbeat 1.6s infinite;
+      display: inline-block;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.22); }
+      40% { transform: scale(1); }
+      60% { transform: scale(1.18); }
+    }
+
+    /* Reaction Pills */
+    .pill-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .reaction-pill {
+      background: #ffffff;
+      border: 1.5px solid #ffd4e2;
+      border-radius: 20px;
+      padding: 9px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #4a3340;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      touch-action: manipulation;
+    }
+
+    .reaction-pill:hover, .reaction-pill.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(255, 45, 117, 0.3);
+      transform: scale(1.02);
+    }
+
+    /* WhatsApp Big Button */
+    .whatsapp-reply-btn {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      width: 100%;
+      padding: 16px 22px;
+      border-radius: 20px;
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      touch-action: manipulation;
+    }
+
+    .whatsapp-reply-btn:hover {
+      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-reply-btn:active {
+      transform: scale(0.97);
+    }
+
+    .footer-joke {
+      font-family: 'Caveat', cursive;
+      font-size: 19px;
+      color: var(--primary);
+      margin-top: 14px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 480px) {
+      body {
+        padding: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(22px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
+      }
+      .card {
+        padding: 30px 20px;
+        border-radius: 28px;
+        box-shadow: 0 14px 40px rgba(255, 45, 117, 0.2);
+      }
+      h1 {
+        font-size: 28px;
+      }
+      p.lead-text {
+        font-size: 16.5px;
+      }
+      .letter-box {
+        padding: 16px 16px;
+      }
+      #typed {
+        font-size: 15.5px;
+        line-height: 1.65;
+        min-height: 130px;
+      }
+      button.action-btn {
+        padding: 14px 28px;
+        font-size: 17.5px;
+      }
+      .whatsapp-reply-btn {
+        padding: 15px 18px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Music -->
+  <audio id="song" loop preload="auto">
+    <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Ambient Floating Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle" onclick="toggleSound()" aria-label="Toggle audio">
+    <span id="sound-icon">🔊</span>
+    <span id="sound-text">Sound On</span>
+  </button>
+
+  <!-- PAGE 1: THE INVITATION TEASER -->
+  <div id="page1" class="card">
+    <div class="envelope-icon">💌</div>
+    <h1>Hey Tina...</h1>
+    <p class="lead-text">I made something small<br>just for you 😊</p>
+    <p class="volume-hint">
+      <span>🎧</span>
+      <span>Put your volume up for the full feeling</span>
+      <span>🔊</span>
+    </p>
+    <button class="action-btn" onclick="openIt()">
+      <span>Open It ❤️</span>
+    </button>
+  </div>
+
+  <!-- PAGE 2: THE ROMANTIC LOVE LETTER -->
+  <div id="page2" class="card hidden">
+    
+    <div class="photo-wrapper">
+      <img class="photo" 
+           src="https://media.tenor.com/8Uj3y8z1xBAAAAAC/cute-bear.gif" 
+           alt="Cute Bear"
+           onerror="this.onerror=null; this.src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZmdHNhcXZ3c3B0cmg5anV4d2h6eHRkMHJva2h0d3Joc2p6amw4eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif';">
+    </div>
+
+    <h1>For Tina ❤️</h1>
+
+    <div class="letter-box">
+      <div class="letter-header">
+        <span class="letter-title">💌 A special note</span>
+        <button class="skip-btn" onclick="skipTyping()">Skip ⏩</button>
+      </div>
+      <div id="typed"><span id="typed-text"></span><span class="cursor" id="type-cursor"></span></div>
+    </div>
+
+    <!-- Final Reply Section (Revealed when typing completes) -->
+    <div id="finalBtn" class="reply-box">
+      <div class="reply-emojis">🥺❤️</div>
+      <p style="font-size: 14.5px; color:#666; margin-bottom: 12px; font-weight:600;">Choose your reply reaction:</p>
+
+      <!-- Clickable Reply Reactions -->
+      <div class="pill-group">
+        <div class="reaction-pill active" onclick="selectReply(this, 'Okay okay you win 😍 I saw your website, it\'s so cute... ❤️')">
+          "Okay okay you win 😍 It's so cute... ❤️"
+        </div>
+        <div class="reaction-pill" onclick="selectReply(this, 'You really are extra haha, but I loved it 🥰❤️')">
+          "You really are extra haha, but I loved it 🥰"
+        </div>
+        <div class="reaction-pill" onclick="selectReply(this, 'Awww Elvis you just made my whole day! 💖 Let\'s get that ice cream 🍦')">
+          "Awww Elvis you made my whole day! 💖 Let's get ice cream 🍦"
+        </div>
+      </div>
+
+      <!-- Send on WhatsApp Button -->
+      <button class="whatsapp-reply-btn" onclick="sendReply()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.18-.553-1.614-.677-2.736-2.298-2.822-2.408-.083-.112-.662-.876-.662-1.674 0-.798.417-1.19.564-1.353.147-.162.32-.204.426-.204.106 0 .213.002.306.007.101.005.236-.039.369.28.136.326.467 1.135.508 1.218.041.083.07.181.013.294-.055.113-.083.183-.166.279-.083.097-.174.216-.248.29-.083.084-.17.175-.073.342.097.166.431.71 1.015 1.23.754.672 1.391.88 1.588.977.198.098.313.083.428-.05.116-.132.497-.58.63-.78.133-.198.266-.165.45-.098.184.066 1.168.552 1.369.652.202.101.336.149.387.232.052.083.052.48-.092.885z"/>
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.05c-1.642 0-3.167-.487-4.449-1.325l-.319-.209-2.956.775.789-2.88-.228-.363A8.007 8.007 0 014 12c0-4.411 3.589-8.05 8-8.05 4.411 0 8 3.639 8 8.05 0 4.411-3.589 8.05-8 8.05z"/>
+        </svg>
+        <span>Tap to reply to me 😏</span>
+      </button>
+
+      <div class="footer-joke">
+        (I am Elvis, but you can call me anytime 😏📞)
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ========================================================
+       CONFIG & STATE
+       ======================================================== */
+    // Elvis's phone number
+    const ELVIS_PHONE_NUMBER = "254791620401";
+
+    const letterText = "Hi Tina...\n\nOkay so I know this is a bit extra, but you deserve extra 😊\n\nEver since we started talking, my day just got a little better. Like, your smile, your laugh... yeah, I notice all of it.\n\nI just wanted you to know, talking to you is my favourite part of the day ❤️\n\n- From your favourite person 😏 (Elvis)";
+
+    let charIdx = 0;
+    let isTypingFinished = false;
+    let soundEnabled = true;
+    let chosenReply = "Okay okay you win 😍 I saw your website, it's so cute... ❤️";
+
+    /* ========================================================
+       OPEN THE LETTER & START MUSIC
+       ======================================================== */
+    function openIt() {
+      playChimeTune();
+
+      const song = document.getElementById('song');
+      if (song) {
+        song.volume = 0.65;
+        const playPromise = song.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // If audio blocked by browser, our Web Audio fallback continues smoothly
+          });
+        }
+      }
+
+      // Smooth Page Flip
+      document.getElementById('page1').classList.add('hidden');
+      const page2 = document.getElementById('page2');
+      page2.classList.remove('hidden');
+
+      // Sparkle explosion on open
+      startConfetti();
+      spawnCenterPuff();
+
+      setTimeout(typeWriter, 500);
+    }
+
+    /* ========================================================
+       TYPEWRITER ENGINE WITH NATURAL CADENCE
+       ======================================================== */
+    function typeWriter() {
+      if (isTypingFinished) return;
+
+      const textElem = document.getElementById('typed-text');
+      const cursorElem = document.getElementById('type-cursor');
+
+      if (charIdx < letterText.length) {
+        const char = letterText.charAt(charIdx);
+        textElem.innerHTML += char === "\n" ? "<br>" : char;
+        charIdx++;
+
+        // Soft typewriter tap sound
+        if (char !== " " && char !== "\n" && Math.random() > 0.5) {
+          playSoftClick();
+        }
+
+        // Natural human typing pauses
+        let delay = 35 + Math.random() * 25;
+        if (char === "\n") {
+          delay = 350;
+        } else if (char === "." || char === ":") {
+          delay = 280;
+        } else if (char === "😊" || char === "❤️" || char === "😏") {
+          delay = 380;
+        }
+
+        setTimeout(typeWriter, delay);
+      } else {
+        finishTyping();
+      }
+    }
+
+    function finishTyping() {
+      isTypingFinished = true;
+      document.getElementById('type-cursor').style.display = 'none';
+
+      // Reveal final reply button smoothly
+      const finalSection = document.getElementById('finalBtn');
+      finalSection.classList.add('revealed');
+
+      playVictoryChime();
+      startConfetti();
+    }
+
+    function skipTyping() {
+      if (isTypingFinished) return;
+      document.getElementById('typed-text').innerHTML = letterText.replace(/\n/g, '<br>');
+      finishTyping();
+    }
+
+    /* ========================================================
+       REPLY SELECTION & WHATSAPP REDIRECT
+       ======================================================== */
+    function selectReply(element, replyString) {
+      playPopSound();
+      if (navigator.vibrate) {
+        try { navigator.vibrate(25); } catch(err) {}
+      }
+
+      const allPills = document.querySelectorAll('.reaction-pill');
+      allPills.forEach(p => p.classList.remove('active'));
+      element.classList.add('active');
+      chosenReply = replyString;
+    }
+
+    function sendReply() {
+      playPopSound();
+      if (navigator.vibrate) {
+        try { navigator.vibrate([40, 30, 60]); } catch(err) {}
+      }
+
+      const msg = encodeURIComponent(chosenReply);
+      const url = `https://wa.me/${ELVIS_PHONE_NUMBER}?text=${msg}`;
+      window.open(url, '_blank');
+    }
+
+    /* ========================================================
+       WEB AUDIO SYNTHESIZER (Guaranteed Audio Even Offline)
+       ======================================================== */
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (AudioContext) {
+          audioCtx = new AudioContext();
+        }
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSoftClick() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(600 + Math.random() * 100, now);
+      osc.frequency.exponentialRampToValueAtTime(300, now + 0.025);
+
+      gain.gain.setValueAtTime(0.03, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.025);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.025);
+    }
+
+    function playPopSound() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      const now = ctx.currentTime;
+      osc.frequency.setValueAtTime(520, now);
+      osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
+
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    }
+
+    function playChimeTune() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const notes = [523.25, 659.25, 783.99, 1046.50];
+      const now = ctx.currentTime;
+
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+
+        gain.gain.setValueAtTime(0, now + idx * 0.12);
+        gain.gain.linearRampToValueAtTime(0.22, now + idx * 0.12 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.5);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.12);
+        osc.stop(now + idx * 0.12 + 0.55);
+      });
+    }
+
+    function playVictoryChime() {
+      if (!soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+
+      const chord = [659.25, 783.99, 1046.50, 1318.51];
+      const now = ctx.currentTime;
+
+      chord.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+
+        gain.gain.setValueAtTime(0, now + idx * 0.08);
+        gain.gain.linearRampToValueAtTime(0.25, now + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.6);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.08);
+        osc.stop(now + idx * 0.08 + 0.65);
+      });
+    }
+
+    function toggleSound() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('sound-icon');
+      const text = document.getElementById('sound-text');
+      const song = document.getElementById('song');
+
+      if (soundEnabled) {
+        icon.innerText = "🔊";
+        text.innerText = "Sound On";
+        if (song && !document.getElementById('page2').classList.contains('hidden')) {
+          song.play().catch(()=>{});
+        }
+        playPopSound();
+      } else {
+        icon.innerText = "🔇";
+        text.innerText = "Sound Off";
+        if (song) {
+          song.pause();
+        }
+      }
+    }
+
+    /* ========================================================
+       FLOATING HEARTS & TOUCH SPARKLES BACKGROUND
+       ======================================================== */
+    const heartsCanvas = document.getElementById('hearts-canvas');
+    const heartsCtx = heartsCanvas.getContext('2d');
+    let hearts = [];
+    let touchHearts = [];
+
+    function resizeHeartsCanvas() {
+      heartsCanvas.width = window.innerWidth;
+      heartsCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeHeartsCanvas);
+    resizeHeartsCanvas();
+
+    function createHeart() {
+      return {
+        x: Math.random() * heartsCanvas.width,
+        y: heartsCanvas.height + 20,
+        size: Math.random() * 14 + 10,
+        speedY: Math.random() * 1.2 + 0.6,
+        speedX: Math.sin(Math.random() * Math.PI) * 0.8,
+        opacity: Math.random() * 0.5 + 0.2,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.02,
+        color: ['#ff2d75', '#ffaec0', '#ff5c8a', '#ff9bb2'][Math.floor(Math.random() * 4)]
+      };
+    }
+
+    for (let i = 0; i < 18; i++) {
+      const h = createHeart();
+      h.y = Math.random() * heartsCanvas.height;
+      hearts.push(h);
+    }
+
+    function spawnTouchSparkle(x, y) {
+      const colors = ['#ff2d75', '#ff85a2', '#ff5c8a', '#ff9bb2', '#ffaec0'];
+      for (let i = 0; i < 3; i++) {
+        touchHearts.push({
+          x: x + (Math.random() - 0.5) * 16,
+          y: y + (Math.random() - 0.5) * 16,
+          size: Math.random() * 8 + 8,
+          speedY: Math.random() * 1.8 + 1.2,
+          speedX: (Math.random() - 0.5) * 1.6,
+          opacity: 0.95,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    function spawnCenterPuff() {
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const colors = ['#ff2d75', '#ff85a2', '#ffd1dc', '#ffffff', '#ffaec0'];
+      for (let i = 0; i < 24; i++) {
+        touchHearts.push({
+          x: cx + (Math.random() - 0.5) * 30,
+          y: cy + (Math.random() - 0.5) * 30,
+          size: Math.random() * 12 + 8,
+          speedY: (Math.random() - 0.5) * 5.5 - 1.5,
+          speedX: (Math.random() - 0.5) * 5.5,
+          opacity: 1,
+          color: colors[Math.floor(Math.random() * colors.length)]
+        });
+      }
+    }
+
+    window.addEventListener('pointerdown', (e) => {
+      spawnTouchSparkle(e.clientX, e.clientY);
+    }, { passive: true });
+
+    window.addEventListener('pointermove', (e) => {
+      if (Math.random() > 0.68) {
+        spawnTouchSparkle(e.clientX, e.clientY);
+      }
+    }, { passive: true });
+
+    // Audio unlock on first touch
+    ['touchstart', 'pointerdown', 'click'].forEach(evt => {
+      window.addEventListener(evt, () => {
+        getAudioContext();
+      }, { once: true, passive: true });
+    });
+
+    function drawHeartShape(ctx, x, y, size) {
+      ctx.beginPath();
+      const topCurveHeight = size * 0.3;
+      ctx.moveTo(x, y + topCurveHeight);
+      ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
+      ctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + size, x, y + size);
+      ctx.bezierCurveTo(x, y + size, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
+      ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function animateHearts() {
+      heartsCtx.clearRect(0, 0, heartsCanvas.width, heartsCanvas.height);
+
+      // Ambient floating hearts
+      hearts.forEach((h, index) => {
+        h.y -= h.speedY;
+        h.x += Math.sin(h.y * 0.01) * 0.5;
+        h.rotation += h.rotationSpeed;
+
+        heartsCtx.save();
+        heartsCtx.fillStyle = h.color;
+        heartsCtx.globalAlpha = h.opacity;
+        drawHeartShape(heartsCtx, h.x, h.y, h.size);
+        heartsCtx.restore();
+
+        if (h.y < -30) {
+          hearts[index] = createHeart();
+        }
+      });
+
+      // Interactive touch sparkles
+      for (let i = touchHearts.length - 1; i >= 0; i--) {
+        const th = touchHearts[i];
+        th.y -= th.speedY;
+        th.x += th.speedX;
+        th.opacity -= 0.025;
+        if (th.opacity <= 0) {
+          touchHearts.splice(i, 1);
+        } else {
+          heartsCtx.save();
+          heartsCtx.fillStyle = th.color;
+          heartsCtx.globalAlpha = Math.max(0, th.opacity);
+          drawHeartShape(heartsCtx, th.x, th.y, th.size);
+          heartsCtx.restore();
+        }
+      }
+
+      requestAnimationFrame(animateHearts);
+    }
+    animateHearts();
+
+    /* ========================================================
+       CONFETTI SYSTEM (Pure Canvas 60fps)
+       ======================================================== */
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const confettiCtx = confettiCanvas.getContext('2d');
+    let confettiParticles = [];
+    let confettiActive = false;
+
+    function resizeConfettiCanvas() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeConfettiCanvas);
+    resizeConfettiCanvas();
+
+    function startConfetti() {
+      confettiActive = true;
+      confettiParticles = [];
+      const colors = ['#ff2d75', '#ff85a2', '#ffd1dc', '#ffd700', '#ff69b4', '#00e5ff', '#a855f7'];
+
+      for (let i = 0; i < 120; i++) {
+        confettiParticles.push({
+          x: confettiCanvas.width / 2 + (Math.random() - 0.5) * 60,
+          y: confettiCanvas.height / 2 + (Math.random() - 0.5) * 60,
+          w: Math.random() * 10 + 6,
+          h: Math.random() * 7 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 18,
+          vy: (Math.random() - 0.8) * 18 - 4,
+          gravity: 0.35,
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 12,
+          opacity: 1,
+          shape: Math.random() > 0.4 ? 'rect' : 'heart'
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      if (!confettiActive) return;
+      confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+
+      let aliveCount = 0;
+      confettiParticles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.vx *= 0.98;
+        p.rotation += p.rotationSpeed;
+        p.opacity -= 0.005;
+
+        if (p.opacity > 0 && p.y < confettiCanvas.height + 50) {
+          aliveCount++;
+          confettiCtx.save();
+          confettiCtx.translate(p.x, p.y);
+          confettiCtx.rotate((p.rotation * Math.PI) / 180);
+          confettiCtx.fillStyle = p.color;
+          confettiCtx.globalAlpha = Math.max(0, p.opacity);
+
+          if (p.shape === 'rect') {
+            confettiCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          } else {
+            drawHeartShape(confettiCtx, -p.w / 2, -p.h / 2, p.w);
+          }
+
+          confettiCtx.restore();
+        }
+      });
+
+      if (aliveCount > 0) {
+        requestAnimationFrame(animateConfetti);
+      } else {
+        confettiActive = false;
+        confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+      }
+    }
+  </script>
+</body>
+</html>
