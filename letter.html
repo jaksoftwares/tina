@@ -359,34 +359,186 @@
       transform: scale(1.02);
     }
 
-    /* WhatsApp Big Button */
-    .whatsapp-reply-btn {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-      color: white;
-      width: 100%;
-      padding: 16px 22px;
-      border-radius: 20px;
-      font-size: 17px;
-      font-weight: 700;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
-      text-decoration: none;
-      display: inline-flex;
+    /* WhatsApp Prominent CTA Card */
+    .whatsapp-cta-card {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 22px;
+      padding: 16px 14px 14px;
+      margin: 18px 0 12px;
+      text-align: left;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.16);
+      position: relative;
+    }
+
+    .wa-preview-box {
+      background: #ffffff;
+      border: 1px solid #dcfce7;
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+
+    .wa-preview-header {
+      font-size: 12px;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .wa-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px #22c55e;
+    }
+
+    .wa-preview-bubble {
+      background: #dcf8c6;
+      color: #111b21;
+      font-size: 13.5px;
+      line-height: 1.45;
+      padding: 8px 12px;
+      border-radius: 12px 12px 0 12px;
+      border: 1px solid #cbf3ad;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .whatsapp-prompt-badge {
+      font-size: 13.5px;
+      color: #15803d;
+      margin-bottom: 10px;
+      display: flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .bouncing-finger {
+      display: inline-block;
+      animation: nudgeY 1.2s infinite ease-in-out;
+      font-size: 16px;
+    }
+
+    @keyframes nudgeY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .whatsapp-master-btn {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff !important;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
-      border: none;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+      animation: waPulseGlow 2.2s infinite;
+      transition: all 0.25s ease;
       cursor: pointer;
-      transition: all 0.3s ease;
       touch-action: manipulation;
+      border: none;
     }
 
-    .whatsapp-reply-btn:hover {
-      box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
-      transform: translateY(-2px);
+    @keyframes waPulseGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 8px 20px rgba(37, 211, 102, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0), 0 12px 28px rgba(37, 211, 102, 0.45);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 20px rgba(37, 211, 102, 0.3);
+        transform: scale(1);
+      }
     }
 
-    .whatsapp-reply-btn:active {
+    .whatsapp-master-btn:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+    }
+
+    .whatsapp-master-btn:active {
       transform: scale(0.97);
+    }
+
+    .wa-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .wa-icon-circle {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .wa-btn-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wa-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+    }
+
+    .wa-sub {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .wa-arrow {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-right: 4px;
+      animation: arrowSlide 1.4s infinite;
+    }
+
+    @keyframes arrowSlide {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    .wa-footnote {
+      font-size: 12px;
+      color: #15803d;
+      font-weight: 600;
+      margin-top: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
     .footer-joke {
@@ -507,14 +659,45 @@
         </div>
       </div>
 
-      <!-- Send on WhatsApp Button -->
-      <button class="whatsapp-reply-btn" onclick="sendReply()">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.18-.553-1.614-.677-2.736-2.298-2.822-2.408-.083-.112-.662-.876-.662-1.674 0-.798.417-1.19.564-1.353.147-.162.32-.204.426-.204.106 0 .213.002.306.007.101.005.236-.039.369.28.136.326.467 1.135.508 1.218.041.083.07.181.013.294-.055.113-.083.183-.166.279-.083.097-.174.216-.248.29-.083.084-.17.175-.073.342.097.166.431.71 1.015 1.23.754.672 1.391.88 1.588.977.198.098.313.083.428-.05.116-.132.497-.58.63-.78.133-.198.266-.165.45-.098.184.066 1.168.552 1.369.652.202.101.336.149.387.232.052.083.052.48-.092.885z"/>
-          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.05c-1.642 0-3.167-.487-4.449-1.325l-.319-.209-2.956.775.789-2.88-.228-.363A8.007 8.007 0 014 12c0-4.411 3.589-8.05 8-8.05 4.411 0 8 3.639 8 8.05 0 4.411-3.589 8.05-8 8.05z"/>
-        </svg>
-        <span>Tap to reply to me 😏</span>
-      </button>
+      <!-- Prominent WhatsApp CTA Card -->
+      <div class="whatsapp-cta-card">
+        <div class="wa-preview-box">
+          <div class="wa-preview-header">
+            <span class="wa-dot"></span>
+            <span>Your reply ready for <strong>Elvis</strong>:</span>
+          </div>
+          <div class="wa-preview-bubble" id="wa-preview-bubble">
+            "Okay okay you win 😍 I saw your website, it's so cute... ❤️"
+          </div>
+        </div>
+
+        <div class="whatsapp-prompt-badge">
+          <span class="bouncing-finger">👇</span>
+          <span>Tap below to send this directly on WhatsApp!</span>
+          <span class="bouncing-finger">👇</span>
+        </div>
+
+        <!-- Master Action Button -->
+        <button class="whatsapp-master-btn" id="wa-master-btn" onclick="sendReply()">
+          <div class="wa-btn-left">
+            <div class="wa-icon-circle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.18-.553-1.614-.677-2.736-2.298-2.822-2.408-.083-.112-.662-.876-.662-1.674 0-.798.417-1.19.564-1.353.147-.162.32-.204.426-.204.106 0 .213.002.306.007.101.005.236-.039.369.28.136.326.467 1.135.508 1.218.041.083.07.181.013.294-.055.113-.083.183-.166.279-.083.097-.174.216-.248.29-.083.084-.17.175-.073.342.097.166.431.71 1.015 1.23.754.672 1.391.88 1.588.977.198.098.313.083.428-.05.116-.132.497-.58.63-.78.133-.198.266-.165.45-.098.184.066 1.168.552 1.369.652.202.101.336.149.387.232.052.083.052.48-.092.885z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.05c-1.642 0-3.167-.487-4.449-1.325l-.319-.209-2.956.775.789-2.88-.228-.363A8.007 8.007 0 014 12c0-4.411 3.589-8.05 8-8.05 4.411 0 8 3.639 8 8.05 0 4.411-3.589 8.05-8 8.05z"/>
+              </svg>
+            </div>
+            <div class="wa-btn-text">
+              <span class="wa-title">Open WhatsApp &amp; Send 💬</span>
+              <span class="wa-sub">Opens your chat with Elvis ready to send</span>
+            </div>
+          </div>
+          <div class="wa-arrow">➔</div>
+        </button>
+
+        <div class="wa-footnote">
+          <span>⚡ One tap opens your chat with this message pre-filled!</span>
+        </div>
+      </div>
 
       <div class="footer-joke">
         (I am Elvis, but you can call me anytime 😏📞)
@@ -632,6 +815,11 @@
       allPills.forEach(p => p.classList.remove('active'));
       element.classList.add('active');
       chosenReply = replyString;
+
+      const preview = document.getElementById('wa-preview-bubble');
+      if (preview) {
+        preview.textContent = `"${replyString}"`;
+      }
     }
 
     function sendReply() {
@@ -642,7 +830,8 @@
 
       const msg = encodeURIComponent(chosenReply);
       const url = `https://wa.me/${ELVIS_PHONE_NUMBER}?text=${msg}`;
-      window.open(url, '_blank');
+      // Direct window.location.href prevents mobile popup blocker blocks
+      window.location.href = url;
     }
 
     /* ========================================================
