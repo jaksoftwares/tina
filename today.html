@@ -312,31 +312,154 @@
       font-weight: 600;
     }
 
+    /* Classy & Romantic "Open Your Surprise" Masterpiece Button */
     .open-btn {
-      background: linear-gradient(135deg, #ff2d75 0%, #ff5c8a 100%);
-      color: #ffffff;
-      border: none;
+      position: relative;
       width: 100%;
-      padding: 17px 26px;
-      border-radius: 24px;
-      font-size: 18.5px;
-      font-weight: 700;
+      background: linear-gradient(135deg, #ff1a68 0%, #ff4081 50%, #ff6b95 100%);
+      color: #ffffff;
+      border: 2px solid rgba(255, 235, 180, 0.75);
+      border-radius: 26px;
+      padding: 16px 20px;
       cursor: pointer;
-      box-shadow: 0 10px 30px var(--primary-glow);
-      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(255, 26, 104, 0.45), 0 0 25px rgba(212, 175, 55, 0.35);
+      animation: romanticHeartbeatPulse 2.8s infinite ease-in-out;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      touch-action: manipulation;
+    }
+
+    @keyframes romanticHeartbeatPulse {
+      0%, 100% {
+        box-shadow: 0 10px 28px rgba(255, 26, 104, 0.4), 
+                    0 0 0 0 rgba(255, 45, 117, 0.4), 
+                    0 0 20px rgba(212, 175, 55, 0.3);
+        transform: scale(1);
+      }
+      35% {
+        box-shadow: 0 16px 42px rgba(255, 26, 104, 0.65), 
+                    0 0 0 10px rgba(255, 45, 117, 0), 
+                    0 0 35px rgba(212, 175, 55, 0.5);
+        transform: scale(1.025);
+      }
+      50% {
+        box-shadow: 0 10px 28px rgba(255, 26, 104, 0.4), 
+                    0 0 0 0 rgba(255, 45, 117, 0), 
+                    0 0 20px rgba(212, 175, 55, 0.3);
+        transform: scale(1);
+      }
+      65% {
+        box-shadow: 0 14px 36px rgba(255, 26, 104, 0.55), 
+                    0 0 0 6px rgba(255, 45, 117, 0.08), 
+                    0 0 28px rgba(212, 175, 55, 0.4);
+        transform: scale(1.015);
+      }
     }
 
     .open-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 36px rgba(255, 45, 117, 0.65);
+      transform: translateY(-2px) scale(1.035);
+      box-shadow: 0 18px 46px rgba(255, 26, 104, 0.7), 0 0 35px rgba(212, 175, 55, 0.6);
+      border-color: rgba(255, 245, 205, 0.95);
     }
 
     .open-btn:active {
       transform: scale(0.97);
+    }
+
+    /* Light Glint Sweep across the button */
+    .btn-shimmer-sweep {
+      position: absolute;
+      top: -50%;
+      left: -80%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(25deg);
+      animation: lightGlint 3.2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    @keyframes lightGlint {
+      0% { left: -100%; opacity: 0; }
+      15% { opacity: 1; }
+      45% { left: 160%; opacity: 0; }
+      100% { left: 160%; opacity: 0; }
+    }
+
+    .btn-content-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .btn-heart-badge {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      animation: sweetHeartbeat 1.6s infinite ease-in-out;
+    }
+
+    @keyframes sweetHeartbeat {
+      0%, 100% { transform: scale(1); }
+      40% { transform: scale(1.18); }
+      60% { transform: scale(1.05); }
+      80% { transform: scale(1.15); }
+    }
+
+    .btn-text-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      flex-grow: 1;
+    }
+
+    .btn-main-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-sub-tag {
+      font-size: 11.5px;
+      color: rgba(255, 245, 235, 0.95);
+      font-weight: 600;
+      margin-top: 2px;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-sparkle-arrow {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 800;
+      margin-right: 4px;
+      animation: arrowGlide 1.5s infinite;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes arrowGlide {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
     }
 
     /* ========================================================
@@ -747,9 +870,16 @@
         <span>Turn your volume up 🔊 &amp; tap below</span>
       </div>
 
-      <button class="open-btn" onclick="openExperience()">
-        <span>Open Your Surprise</span>
-        <span>💌</span>
+      <button class="open-btn" onclick="openExperience()" aria-label="Open Your Surprise">
+        <div class="btn-shimmer-sweep"></div>
+        <div class="btn-content-inner">
+          <div class="btn-heart-badge">💖</div>
+          <div class="btn-text-group">
+            <span class="btn-main-title">Open Your Surprise</span>
+            <span class="btn-sub-tag">Made with love just for you ✨</span>
+          </div>
+          <span class="btn-sparkle-arrow">➔</span>
+        </div>
       </button>
     </div>
 
@@ -803,8 +933,8 @@
             id="custom-reply-text" 
             class="reply-textarea" 
             rows="3" 
-            placeholder="Type your message to Elvis here... 😊" 
-            oninput="handleReplyInput(this)">Okay you win 😍 I just saw your website, it's so cute... ❤️</textarea>
+            placeholder="Type your reply to Elvis here... ✨" 
+            oninput="handleReplyInput(this)"></textarea>
 
           <a id="wa-master-btn" 
              href="#" 
@@ -837,7 +967,7 @@
     // Elvis's Kenyan WhatsApp number: 0791620401 -> 254791620401
     const ELVIS_PHONE = "254791620401";
     
-    let currentReplyText = "Okay okay you win 😍 I saw your website, it's so cute... ❤️";
+    let currentReplyText = "";
     let isTypingSkipped = false;
     let isSoundOn = true;
 
@@ -1080,27 +1210,28 @@
        WHATSAPP DIRECT LINKING & CUSTOM REPLY ENGINE
        ======================================================== */
     function handleReplyInput(textarea) {
-      currentReplyText = textarea.value.trim() || "Hey Elvis! 🥰 I just saw this... ❤️";
+      currentReplyText = textarea.value.trim();
       updateWhatsAppHref();
     }
 
     function updateWhatsAppHref() {
       const textarea = document.getElementById("custom-reply-text");
-      if (textarea && textarea.value.trim()) {
-        currentReplyText = textarea.value.trim();
-      }
+      const userText = (textarea && textarea.value.trim()) 
+        ? textarea.value.trim() 
+        : (currentReplyText || "Hey Elvis! 🥰 I just saw your website ❤️");
       const btn = document.getElementById("wa-master-btn");
       if (!btn) return;
-      const encodedMsg = encodeURIComponent(currentReplyText);
-      btn.href = `https://wa.me/${ELVIS_PHONE}?text=${encodedMsg}`;
+      btn.href = `https://wa.me/${ELVIS_PHONE}?text=${encodeURIComponent(userText)}`;
     }
 
     function handleWhatsAppDirect(event) {
       const textarea = document.getElementById("custom-reply-text");
-      if (textarea && textarea.value.trim()) {
-        currentReplyText = textarea.value.trim();
-        updateWhatsAppHref();
-      }
+      const userText = (textarea && textarea.value.trim()) 
+        ? textarea.value.trim() 
+        : "Hey Elvis! 🥰 I just saw your website ❤️";
+      currentReplyText = userText;
+      updateWhatsAppHref();
+
       if (navigator.vibrate) {
         try { navigator.vibrate([40, 30, 60]); } catch(e) {}
       }
