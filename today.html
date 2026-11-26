@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>A Special Moment for Tina ✨</title>
+
+  <!-- Open Graph Meta Tags for WhatsApp & Social Previews -->
+  <meta property="og:title" content="A Special Moment for Tina ✨">
+  <meta property="og:description" content="Elvis made something heartfelt just for you. Tap to open 💌">
+  <meta property="og:image" content="tina.jpeg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ff2d75">
+
+  <!-- Fonts: Luxury Editorial Serif & Clean Modern Geometric Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff2d75;
+      --primary-glow: rgba(255, 45, 117, 0.45);
+      --primary-soft: #fff0f5;
+      --gold: #d4af37;
+      --gold-glow: rgba(212, 175, 55, 0.4);
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --glass-border: rgba(255, 255, 255, 0.65);
+      --text-dark: #201a1e;
+      --text-muted: #6b5864;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: #0f0b12;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 20px 14px;
+    }
+
+    /* Ambient Background with Tina's Portrait Glow */
+    .bg-canvas-wrap {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .bg-photo-blur {
+      position: absolute;
+      inset: -30px;
+      background-image: url('tina.jpeg');
+      background-size: cover;
+      background-position: center 25%;
+      filter: blur(55px) brightness(0.42) saturate(1.4);
+      transform: scale(1.12);
+      opacity: 0.85;
+      transition: opacity 1.2s ease;
+    }
+
+    .bg-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 45, 117, 0.25) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.2) 0%, transparent 60%),
+                  linear-gradient(180deg, rgba(15, 11, 18, 0.6) 0%, rgba(15, 11, 18, 0.88) 100%);
+    }
+
+    #particles-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Audio Pill Control */
+    .sound-badge {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 30px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .sound-badge:hover {
+      transform: scale(1.06);
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    .sound-badge:active {
+      transform: scale(0.96);
+    }
+
+    .sound-icon {
+      font-size: 15px;
+      animation: pulseSound 1.8s infinite;
+    }
+
+    @keyframes pulseSound {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+
+    /* Main Container */
+    .app-container {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+
+    /* ========================================================
+       PHASE 1: THE GOLD WAX-SEALED ENVELOPE
+       ======================================================== */
+    .envelope-screen {
+      background: var(--card-bg);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 34px 24px 28px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 35px var(--primary-glow);
+      animation: floatSlow 4s ease-in-out infinite;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .wax-seal-wrapper {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+      cursor: pointer;
+    }
+
+    .wax-seal-glow {
+      position: absolute;
+      inset: -10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.5) 0%, transparent 70%);
+      animation: sealPulse 2s infinite ease-in-out;
+    }
+
+    @keyframes sealPulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.18); opacity: 1; }
+    }
+
+    .wax-seal {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #e8be48 0%, #b8860b 50%, #8b6508 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35), inset 0 2px 5px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.4);
+      border: 3px solid rgba(255, 235, 170, 0.6);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .wax-seal:hover {
+      transform: scale(1.08) rotate(4deg);
+    }
+
+    .wax-seal:active {
+      transform: scale(0.94);
+    }
+
+    .wax-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #3d2b05;
+      text-shadow: 1px 1px 0 rgba(255,255,255,0.4), -1px -1px 1px rgba(0,0,0,0.4);
+    }
+
+    .tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 45, 117, 0.12);
+      border: 1px solid rgba(255, 45, 117, 0.25);
+      color: var(--primary);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    h1.title-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #1a1016;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    p.subtitle-text {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .tap-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #8a7180;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    .open-btn {
+      background: linear-gradient(135deg, #ff2d75 0%, #ff5c8a 100%);
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 22px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 28px var(--primary-glow);
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .open-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 34px rgba(255, 45, 117, 0.6);
+    }
+
+    .open-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* ========================================================
+       PHASE 2: THE 10/10 CURATED MASTER CARD
+       ======================================================== */
+    .master-screen {
+      background: var(--card-bg);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 26px 20px 24px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 45px rgba(255, 45, 117, 0.3);
+      position: relative;
+      animation: revealCard 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes revealCard {
+      0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.94);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Luxury Portrait Framing for Tina */
+    .portrait-stage {
+      position: relative;
+      width: 150px;
+      height: 190px;
+      margin: 0 auto 16px;
+      border-radius: 22px;
+      padding: 4px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(212, 175, 55, 0.7) 50%, rgba(255, 45, 117, 0.8) 100%);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28), 0 0 25px rgba(255, 45, 117, 0.35);
+      animation: stageGlow 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes stageGlow {
+      0% { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 45, 117, 0.3); }
+      100% { box-shadow: 0 16px 36px rgba(0, 0, 0, 0.32), 0 0 35px rgba(212, 175, 55, 0.5); }
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 18px;
+      display: block;
+      filter: contrast(1.03) brightness(1.02);
+    }
+
+    .portrait-sparkle-pill {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #ff2d75 0%, #ff5c8a 100%);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(255, 45, 117, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: 0.3px;
+    }
+
+    .recipient-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #1a0f16;
+      margin-top: 14px;
+      margin-bottom: 2px;
+    }
+
+    .curated-subtitle {
+      font-size: 13.5px;
+      color: #8c7382;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Typewriter Journal Box */
+    .letter-journal {
+      background: #ffffff;
+      border: 1.5px solid rgba(255, 218, 229, 0.85);
+      border-radius: 20px;
+      padding: 18px 18px 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(255, 45, 117, 0.08);
+      position: relative;
+    }
+
+    .journal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px dashed rgba(255, 180, 205, 0.6);
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .journal-author {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .author-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: pulseDot 1.4s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+    }
+
+    .journal-date {
+      font-size: 11.5px;
+      color: #9c8b95;
+      font-weight: 600;
+    }
+
+    .journal-content {
+      font-size: 15.5px;
+      line-height: 1.68;
+      color: #2b1f26;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 130px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 17px;
+      background: var(--primary);
+      margin-left: 2px;
+      vertical-align: middle;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .handwritten-signoff {
+      font-family: 'Caveat', cursive;
+      font-size: 24px;
+      color: var(--primary);
+      text-align: right;
+      margin-top: 10px;
+      display: none;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Fast-Forward / Skip Button */
+    .skip-typing-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(255, 45, 117, 0.1);
+      border: 1px solid rgba(255, 45, 117, 0.25);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .skip-typing-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Interactive Reaction Selector */
+    .reaction-section {
+      text-align: left;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #4a3843;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pills-scroll {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .reply-pill {
+      background: #fbf7f9;
+      border: 1.5px solid #ecdfe5;
+      color: #55424e;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      touch-action: manipulation;
+    }
+
+    .reply-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .reply-pill.active {
+      background: linear-gradient(135deg, #ff2d75 0%, #ff5c8a 100%);
+      border-color: #ff2d75;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(255, 45, 117, 0.35);
+      transform: translateY(-1px);
+    }
+
+    /* WhatsApp High-Conversion CTA Card */
+    .whatsapp-cta-card {
+      background: #f0fdf4;
+      border: 2px solid #86efac;
+      border-radius: 22px;
+      padding: 16px 14px 14px;
+      text-align: left;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.16);
+      position: relative;
+      margin-top: 6px;
+    }
+
+    .wa-preview-box {
+      background: #ffffff;
+      border: 1px solid #dcfce7;
+      border-radius: 16px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+    }
+
+    .wa-preview-header {
+      font-size: 11.5px;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .wa-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px #22c55e;
+    }
+
+    .wa-preview-bubble {
+      background: #dcf8c6;
+      color: #111b21;
+      font-size: 13.5px;
+      line-height: 1.45;
+      padding: 8px 12px;
+      border-radius: 14px 14px 0 14px;
+      border: 1px solid #cbf3ad;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .whatsapp-prompt-badge {
+      font-size: 13.5px;
+      color: #15803d;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .bouncing-finger {
+      display: inline-block;
+      animation: nudgeY 1.2s infinite ease-in-out;
+      font-size: 16px;
+    }
+
+    @keyframes nudgeY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .whatsapp-master-btn {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff !important;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+      animation: waPulseGlow 2.2s infinite;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      touch-action: manipulation;
+      border: none;
+    }
+
+    @keyframes waPulseGlow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.65), 0 8px 20px rgba(37, 211, 102, 0.3);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0), 0 12px 28px rgba(37, 211, 102, 0.45);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 8px 20px rgba(37, 211, 102, 0.3);
+        transform: scale(1);
+      }
+    }
+
+    .whatsapp-master-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+    }
+
+    .whatsapp-master-btn:active {
+      transform: scale(0.97);
+    }
+
+    .wa-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .wa-icon-circle {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .wa-btn-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wa-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.25;
+      letter-spacing: -0.2px;
+    }
+
+    .wa-sub {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .wa-arrow {
+      font-size: 20px;
+      color: #ffffff;
+      font-weight: 700;
+      margin-right: 4px;
+      animation: arrowSlide 1.4s infinite;
+    }
+
+    @keyframes arrowSlide {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(5px); }
+    }
+
+    .wa-footnote {
+      font-size: 11.5px;
+      color: #15803d;
+      margin-top: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Secret Footer Note */
+    .footer-stamp {
+      margin-top: 22px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Background Container -->
+  <div class="bg-canvas-wrap">
+    <div class="bg-photo-blur"></div>
+    <div class="bg-gradient-overlay"></div>
+  </div>
+
+  <!-- Particle & Confetti Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Audio Player & Toggle Badge -->
+  <audio id="audio-track" loop preload="auto">
+    <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="sound-badge" onclick="toggleAudio()" aria-label="Toggle background music">
+    <span class="sound-icon" id="sound-icon">🔊</span>
+    <span id="sound-label">Music On</span>
+  </div>
+
+  <!-- Main Experience Wrapper -->
+  <div class="app-container">
+
+    <!-- ==========================================
+         SCREEN 1: THE GOLD WAX-SEALED ENVELOPE
+         ========================================== -->
+    <div class="envelope-screen" id="screen-envelope">
+      <div class="wax-seal-wrapper" onclick="openExperience()">
+        <div class="wax-seal-glow"></div>
+        <div class="wax-seal">
+          <span class="wax-monogram">T</span>
+        </div>
+      </div>
+
+      <div class="tag-badge">
+        <span>✨ Special Surprise ✨</span>
+      </div>
+
+      <h1 class="title-main">Hey Tina...</h1>
+      <p class="subtitle-text">
+        I was thinking about you today and put together something small just for you. 😊
+      </p>
+
+      <div class="tap-hint">
+        <span>Turn your volume up 🔊 &amp; tap below</span>
+      </div>
+
+      <button class="open-btn" onclick="openExperience()">
+        <span>Open Your Surprise</span>
+        <span>💌</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SCREEN 2: THE 10/10 CURATED MASTER CARD
+         ========================================== -->
+    <div class="master-screen hidden" id="screen-master">
+      
+      <!-- Portrait Spotlight for Tina -->
+      <div class="portrait-stage">
+        <img class="portrait-img" src="tina.jpeg" alt="Tina" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=720&q=80';">
+        <div class="portrait-sparkle-pill">
+          <span>✨ That Smile</span>
+        </div>
+      </div>
+
+      <h2 class="recipient-heading">For Tina ❤️</h2>
+      <div class="curated-subtitle">
+        <span>A little piece of honesty for today</span>
+      </div>
+
+      <!-- Typewriter Journal -->
+      <div class="letter-journal">
+        <button class="skip-typing-btn" onclick="skipTyping()">Skip ⏩</button>
+        <div class="journal-header">
+          <div class="journal-author">
+            <span class="author-dot"></span>
+            <span>Elvis is typing...</span>
+          </div>
+          <div class="journal-date" id="live-date">Today ✨</div>
+        </div>
+
+        <div class="journal-content">
+          <span id="typed-text"></span><span class="cursor" id="type-cursor"></span>
+        </div>
+
+        <div class="handwritten-signoff" id="signoff">
+          — Elvis 😉
+        </div>
+      </div>
+
+      <!-- Interactive Quick-Reply Selector -->
+      <div class="reaction-section" id="reaction-container" style="display: none;">
+        <div class="section-title">
+          <span>💬 Tap a quick reply for Elvis:</span>
+        </div>
+        <div class="pills-scroll">
+          <div class="reply-pill active" onclick="selectReply(this, 'Okay okay you win 😍 I saw your website, it\'s so cute... ❤️')">
+            🥹 You made my day! ❤️
+          </div>
+          <div class="reply-pill" onclick="selectReply(this, 'Hey Elvis! 🥰 I love this... let\'s definitely get ice cream soon! 🍦✨')">
+            🍦 Ice cream is on! 🍨
+          </div>
+          <div class="reply-pill" onclick="selectReply(this, 'You are definitely extra, but I kinda love it 😏 see you soon!')">
+            😏 You're extra, but cute
+          </div>
+          <div class="reply-pill" onclick="selectReply(this, 'Elvis!! This smile is 100% because of you right now 🙈❤️')">
+            🙈 Can't stop smiling
+          </div>
+        </div>
+
+        <!-- High-Conversion WhatsApp Direct-Reply Card -->
+        <div class="whatsapp-cta-card">
+          <div class="wa-preview-box">
+            <div class="wa-preview-header">
+              <span class="wa-dot"></span>
+              <span>Live Message Ready for Elvis:</span>
+            </div>
+            <div class="wa-preview-bubble" id="wa-preview-bubble">
+              "Okay okay you win 😍 I saw your website, it's so cute... ❤️"
+            </div>
+          </div>
+
+          <div class="whatsapp-prompt-badge">
+            <span class="bouncing-finger">👉</span>
+            <span>Tap below to send directly on WhatsApp!</span>
+            <span class="bouncing-finger">👈</span>
+          </div>
+
+          <a id="wa-master-btn" 
+             href="#" 
+             class="whatsapp-master-btn" 
+             onclick="handleWhatsAppDirect(event)">
+            <div class="wa-btn-left">
+              <div class="wa-icon-circle">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.072-2.18-.553-1.614-.677-2.736-2.298-2.822-2.408-.083-.112-.662-.876-.662-1.674 0-.798.417-1.19.564-1.353.147-.162.32-.204.426-.204.106 0 .213.002.306.007.101.005.236-.039.369.28.136.326.467 1.135.508 1.218.041.083.07.181.013.294-.055.113-.083.183-.166.279-.083.097-.174.216-.248.29-.083.084-.17.175-.073.342.097.166.431.71 1.015 1.23.754.672 1.391.88 1.588.977.198.098.313.083.428-.05.116-.132.497-.58.63-.78.133-.198.266-.165.45-.098.184.066 1.168.552 1.369.652.202.101.336.149.387.232.052.083.052.48-.092.885z"/>
+                  <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.98-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.05c-1.642 0-3.167-.487-4.449-1.325l-.319-.209-2.956.775.789-2.88-.228-.363A8.007 8.007 0 014 12c0-4.411 3.589-8.05 8-8.05 4.411 0 8 3.639 8 8.05 0 4.411-3.589 8.05-8 8.05z"/>
+                </svg>
+              </div>
+              <div class="wa-btn-text">
+                <span class="wa-title">Open WhatsApp &amp; Send 💬</span>
+                <span class="wa-sub">Opens your chat with Elvis directly</span>
+              </div>
+            </div>
+            <div class="wa-arrow">➔</div>
+          </a>
+
+          <div class="wa-footnote">
+            ⚡ One tap opens your chat with Elvis — no typing needed!
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-stamp">
+      Made with ❤️ just for Tina
+    </div>
+
+  </div>
+
+  <script>
+    /* ========================================================
+       CONFIG & STATE
+       ======================================================== */
+    // Elvis's Kenyan WhatsApp number: 0791620401 -> 254791620401
+    const ELVIS_PHONE = "254791620401";
+    
+    let currentReplyText = "Okay okay you win 😍 I saw your website, it's so cute... ❤️";
+    let isTypingSkipped = false;
+    let isSoundOn = true;
+
+    // The curated message for Tina
+    const messageLines = [
+      "Hi Tina...",
+      "",
+      "Okay so I was looking at your picture today and honestly... I had to pause for a second.",
+      "",
+      "You have this genuine warmth and smile that literally makes anyone's day a whole lot better.",
+      "",
+      "I know this is a little extra, but you deserve extra 😊",
+      "",
+      "Just wanted to remind you today: talking to you is my favorite part of any day.",
+      "",
+      "Don't blush too much 😏"
+    ];
+
+    const fullMessage = messageLines.join("\n");
+
+    // Format current date
+    const dateElem = document.getElementById("live-date");
+    if (dateElem) {
+      const now = new Date();
+      const options = { month: 'short', day: 'numeric', weekday: 'short' };
+      dateElem.textContent = now.toLocaleDateString('en-US', options) + " ✨";
+    }
+
+    /* ========================================================
+       AUDIO & HAPTICS ENGINE
+       ======================================================== */
+    const audioTrack = document.getElementById("audio-track");
+    const soundIcon = document.getElementById("sound-icon");
+    const soundLabel = document.getElementById("sound-label");
+
+    // Soft Web Audio synthesized tap sound
+    let audioCtx = null;
+    function playTapSFX() {
+      if (!isSoundOn) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(440 + Math.random() * 80, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.06);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.06);
+      } catch(e) {}
+    }
+
+    function toggleAudio() {
+      if (audioTrack.paused) {
+        audioTrack.play().then(() => {
+          isSoundOn = true;
+          soundIcon.textContent = "🔊";
+          soundLabel.textContent = "Music On";
+        }).catch(() => {});
+      } else {
+        audioTrack.pause();
+        isSoundOn = false;
+        soundIcon.textContent = "🔇";
+        soundLabel.textContent = "Muted";
+      }
+    }
+
+    /* ========================================================
+       OPEN EXPERIENCE (UNFOLD ENVELOPE)
+       ======================================================== */
+    function openExperience() {
+      if (navigator.vibrate) {
+        try { navigator.vibrate([40, 30, 50]); } catch(e) {}
+      }
+
+      // Start music
+      audioTrack.volume = 0.65;
+      audioTrack.play().catch(() => {});
+
+      // Burst celebration particles
+      spawnParticleBurst(window.innerWidth / 2, window.innerHeight / 2);
+
+      // Transition screens
+      const envScreen = document.getElementById("screen-envelope");
+      const masterScreen = document.getElementById("screen-master");
+
+      envScreen.style.transition = "opacity 0.45s ease, transform 0.45s ease";
+      envScreen.style.opacity = "0";
+      envScreen.style.transform = "scale(0.92)";
+
+      setTimeout(() => {
+        envScreen.classList.add("hidden");
+        masterScreen.classList.remove("hidden");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        startTypewriter();
+      }, 400);
+    }
+
+    /* ========================================================
+       TYPEWRITER ENGINE
+       ======================================================== */
+    let charIdx = 0;
+    function startTypewriter() {
+      const typedBox = document.getElementById("typed-text");
+      const reactionCont = document.getElementById("reaction-container");
+      const signoff = document.getElementById("signoff");
+
+      function typeChar() {
+        if (isTypingSkipped) return;
+
+        if (charIdx < fullMessage.length) {
+          const char = fullMessage.charAt(charIdx);
+          typedBox.textContent += char;
+          charIdx++;
+
+          if (char !== " " && char !== "\n" && Math.random() > 0.45) {
+            playTapSFX();
+          }
+
+          // Natural human typing pauses
+          let delay = 32;
+          if (char === "\n") delay = 320;
+          else if (char === "." || char === "!" || char === "?") delay = 280;
+          else if (char === ",") delay = 160;
+
+          setTimeout(typeChar, delay);
+        } else {
+          finishTyping();
+        }
+      }
+
+      typeChar();
+    }
+
+    function skipTyping() {
+      if (isTypingSkipped) return;
+      isTypingSkipped = true;
+      document.getElementById("typed-text").textContent = fullMessage;
+      finishTyping();
+    }
+
+    function finishTyping() {
+      document.getElementById("type-cursor").style.display = "none";
+      const signoff = document.getElementById("signoff");
+      if (signoff) signoff.style.display = "block";
+      const reactions = document.getElementById("reaction-container");
+      if (reactions) {
+        reactions.style.display = "block";
+        reactions.style.animation = "fadeIn 0.6s ease forwards";
+      }
+      updateWhatsAppHref();
+    }
+
+    /* ========================================================
+       WHATSAPP DIRECT LINKING ENGINE
+       ======================================================== */
+    function selectReply(pillElem, text) {
+      playTapSFX();
+      if (navigator.vibrate) {
+        try { navigator.vibrate(25); } catch(e) {}
+      }
+
+      document.querySelectorAll(".reply-pill").forEach(p => p.classList.remove("active"));
+      pillElem.classList.add("active");
+      currentReplyText = text;
+
+      const bubble = document.getElementById("wa-preview-bubble");
+      if (bubble) {
+        bubble.textContent = `"${text}"`;
+      }
+      updateWhatsAppHref();
+    }
+
+    function updateWhatsAppHref() {
+      const btn = document.getElementById("wa-master-btn");
+      if (!btn) return;
+      const encodedMsg = encodeURIComponent(currentReplyText);
+      btn.href = `https://wa.me/${ELVIS_PHONE}?text=${encodedMsg}`;
+    }
+
+    function handleWhatsAppDirect(event) {
+      if (navigator.vibrate) {
+        try { navigator.vibrate([40, 30, 60]); } catch(e) {}
+      }
+      const btn = document.getElementById("wa-master-btn");
+      if (btn && btn.href && btn.href !== "#") {
+        window.location.href = btn.href;
+        if (event) event.preventDefault();
+      }
+    }
+
+    // Initialize initial link
+    updateWhatsAppHref();
+
+    /* ========================================================
+       PARTICLES & FLOATING HEARTS CANVAS
+       ======================================================== */
+    const canvas = document.getElementById("particles-canvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createAmbientParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: canvas.height + 15,
+        size: Math.random() * 4 + 2,
+        speedY: Math.random() * 1.2 + 0.5,
+        speedX: (Math.random() - 0.5) * 0.8,
+        opacity: Math.random() * 0.55 + 0.25,
+        type: Math.random() > 0.4 ? 'sparkle' : 'heart',
+        hue: Math.random() > 0.5 ? 340 : 45 // pinks and golds
+      };
+    }
+
+    // Pre-populate particles
+    for (let i = 0; i < 28; i++) {
+      const p = createAmbientParticle();
+      p.y = Math.random() * canvas.height;
+      particles.push(p);
+    }
+
+    function spawnParticleBurst(x, y) {
+      for (let i = 0; i < 35; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 6 + 2;
+        particles.push({
+          x: x,
+          y: y,
+          size: Math.random() * 6 + 3,
+          speedX: Math.cos(angle) * velocity,
+          speedY: Math.sin(angle) * velocity,
+          opacity: 1,
+          type: 'sparkle',
+          hue: Math.random() > 0.5 ? 340 : 45
+        });
+      }
+    }
+
+    function renderParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.speedX;
+        p.y -= p.speedY;
+
+        if (p.type === 'sparkle') {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${p.hue}, 100%, 75%, ${p.opacity})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = `hsla(${p.hue}, 100%, 70%, 0.8)`;
+          ctx.fill();
+        } else {
+          // Heart shape
+          ctx.font = `${p.size * 3.5}px serif`;
+          ctx.fillStyle = `rgba(255, 45, 117, ${p.opacity})`;
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = "rgba(255, 45, 117, 0.6)";
+          ctx.fillText("❤️", p.x, p.y);
+        }
+
+        // Recycle or fade
+        if (p.y < -20 || p.x < -20 || p.x > canvas.width + 20) {
+          particles[i] = createAmbientParticle();
+        }
+      }
+
+      requestAnimationFrame(renderParticles);
+    }
+
+    renderParticles();
+  </script>
+</body>
+</html>
